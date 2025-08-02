@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://l0lgpiy37307"]
+
+[ext_resource type="Script" uid="uid://vynsbxb5gvg5" path="res://addons/fluent_behavior_tree/BehaviorTree/Debugging/BehaviorTreeDebugRegistrar.cs" id="1_3yg4f"]
+
+[node name="BehaviorTreeDebugRegistrar" type="Node"]
+script = ExtResource("1_3yg4f")
+metadata/_custom_type_script = "uid://cluho1la5s11q"

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b1ifplmyqjtn"]
+
+[node name="TestDebuggerInterface" type="PanelContainer"]
+offset_right = 1033.0
+offset_bottom = 554.0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="VSplitContainer"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Mock Tree 1"
+popup/item_0/id = 0
+popup/item_1/text = "Mock Tree 2"
+popup/item_1/id = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer"]
+layout_mode = 2
+
+[node name="BoxContainer" type="VBoxContainer" parent="VSplitContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VSplitContainer/VBoxContainer/BoxContainer"]
+layout_mode = 2
+text = "MockText"
+
+[node name="BoxContainer2" type="BoxContainer" parent="VSplitContainer/VBoxContainer/BoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VSplitContainer/VBoxContainer/BoxContainer/BoxContainer2"]
+layout_mode = 2
+text = "	MockText"
+
+[node name="BoxContainer3" type="BoxContainer" parent="VSplitContainer/VBoxContainer/BoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VSplitContainer/VBoxContainer/BoxContainer/BoxContainer3"]
+layout_mode = 2
+text = "	MockText"

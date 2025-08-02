@@ -12,7 +12,7 @@ public partial class BehaviorTreeViewContainer : VBoxContainer {
 
     private readonly int depth;
 
-    private readonly Label nodeLabel = new Label();
+    private readonly RichTextLabel nodeLabel = new RichTextLabel();
 
     private Array<BehaviorTreeViewContainer> childContainer = [];
 
@@ -20,6 +20,10 @@ public partial class BehaviorTreeViewContainer : VBoxContainer {
         this.behaviourNode = behaviourNode;
         this.depth = behaviourNode["depth"].AsInt32();
 
+        nodeLabel.BbcodeEnabled = true;
+        nodeLabel.ScrollActive = false;
+        nodeLabel.FitContent = true;
+        nodeLabel.AutowrapMode = TextServer.AutowrapMode.Off;
         nodeLabel.Text = $"{GetIndentation()}{GetLabelName()}";
         AddChild(nodeLabel);
 
@@ -47,8 +51,8 @@ public partial class BehaviorTreeViewContainer : VBoxContainer {
     public override void _Process(double delta) {
         base._Process(delta);
         var statusInt = behaviourNode["status"].AsInt32();
-        var color = GetColorFromStatus(statusInt);
-        AddThemeColorOverride("font_color", color);
+        nodeLabel.Text = GetColorFromStatus(statusInt);
+
     }
 
     private string GetIndentation() {
@@ -67,13 +71,16 @@ public partial class BehaviorTreeViewContainer : VBoxContainer {
         return type.Name;
     }
 
-    private static Color GetColorFromStatus(int status) {
-        return status switch {
-            (int)BehaviourStatus.Ready => Colors.DarkGray,
-            (int)BehaviourStatus.Running => Colors.Yellow,
-            (int)BehaviourStatus.Succeeded => Colors.Green,
-            (int)BehaviourStatus.Failed => Colors.Red,
+    private string GetColorFromStatus(int status) {
+        var textBuilder = $"{GetIndentation()}[color=";
+        textBuilder += status switch {
+            (int)BehaviourStatus.Ready => "darkgray]",
+            (int)BehaviourStatus.Running => "yellow]",
+            (int)BehaviourStatus.Succeeded => "green]",
+            (int)BehaviourStatus.Failed => "red]",
             _ => throw new ArgumentOutOfRangeException(nameof(status), status, null)
         };
+        textBuilder += $"{GetLabelName()}[/color]";
+        return textBuilder;
     }
 }

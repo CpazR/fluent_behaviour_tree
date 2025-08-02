@@ -22,20 +22,24 @@ layout_mode = 2
 [node name="BoxContainer" type="VBoxContainer" parent="VSplitContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VSplitContainer/VBoxContainer/BoxContainer"]
+[node name="Label" type="RichTextLabel" parent="VSplitContainer/VBoxContainer/BoxContainer"]
 layout_mode = 2
 text = "MockText"
 
 [node name="BoxContainer2" type="BoxContainer" parent="VSplitContainer/VBoxContainer/BoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VSplitContainer/VBoxContainer/BoxContainer/BoxContainer2"]
+[node name="Label" type="RichTextLabel" parent="VSplitContainer/VBoxContainer/BoxContainer/BoxContainer2"]
 layout_mode = 2
 text = "	MockText"
 
 [node name="BoxContainer3" type="BoxContainer" parent="VSplitContainer/VBoxContainer/BoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VSplitContainer/VBoxContainer/BoxContainer/BoxContainer3"]
+[node name="Label" type="RichTextLabel" parent="VSplitContainer/VBoxContainer/BoxContainer/BoxContainer3"]
 layout_mode = 2
-text = "	MockText"
+bbcode_enabled = true
+text = "	[color=green]MockText[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

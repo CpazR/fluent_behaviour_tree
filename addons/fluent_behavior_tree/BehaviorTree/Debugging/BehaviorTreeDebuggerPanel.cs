@@ -1,12 +1,9 @@
-﻿using Chickensoft.Log;
-using Godot;
+﻿using Godot;
 using Godot.Collections;
-namespace Cpaz.FDluentBehaviorTree;
+namespace Cpaz.FDluentBehaviourTree;
 
 [Tool]
-public partial class BehaviorTreeDebuggerPanel : PanelContainer {
-
-    private static ILog LOGGER = new Log(nameof(FluentBehaviorTreeDebugger));
+public partial class BehaviourTreeDebuggerPanel : PanelContainer {
 
     internal EditorDebuggerSession session;
 
@@ -22,7 +19,7 @@ public partial class BehaviorTreeDebuggerPanel : PanelContainer {
 
     private VBoxContainer treeContainerVBox = new VBoxContainer();
 
-    private BehaviorTreeViewContainer rootControl;
+    private BehaviourTreeViewContainer rootControl;
 
     private OptionButton treeList = new OptionButton();
 
@@ -42,12 +39,12 @@ public partial class BehaviorTreeDebuggerPanel : PanelContainer {
 
     private void SelectTree(Dictionary tree) {
         behaviour = tree;
-        rootControl = new BehaviorTreeViewContainer(behaviour);
+        rootControl = new BehaviourTreeViewContainer(behaviour);
         treeContainerVBox.AddChild(rootControl);
     }
 
     public void Start() {
-        // Setup signals for new behavior trees post game startup
+        // Setup signals for new behaviour trees post game startup
         treeList.ItemSelected += index => { SelectTree(treeArray[(int)index]); };
     }
 
@@ -77,9 +74,9 @@ public partial class BehaviorTreeDebuggerPanel : PanelContainer {
         treeArray.Clear();
     }
 
-    public void UpdateTree(Dictionary behaviorTree) {
+    public void UpdateTree(Dictionary behaviourTree) {
         if (rootControl != null) {
-            rootControl.UpdateData(behaviorTree);
+            rootControl.UpdateData(behaviourTree);
         }
     }
 }

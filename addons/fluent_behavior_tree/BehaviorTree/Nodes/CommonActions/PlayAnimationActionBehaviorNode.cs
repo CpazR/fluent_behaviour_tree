@@ -1,14 +1,10 @@
 ﻿using BehaviourTree;
 using BehaviourTree.FluentBuilder;
-using Chickensoft.Log;
 using Godot;
-using Godot.Collections;
-namespace Cpaz.FluentBehaviorTree.Nodes.CommonActions;
+namespace Cpaz.FluentBehaviourTree.Nodes.CommonActions;
 
 [GlobalClass]
-public partial class PlayAnimationActionBehaviorNode : ActionBehaviorNode {
-
-    private readonly static ILog LOGGER = new Log(nameof(PlayAnimationActionBehaviorNode));
+public partial class PlayAnimationActionBehaviourNode : ActionBehaviourNode {
 
     [Export]
     public required AnimationPlayer animationPlayer;
@@ -35,16 +31,16 @@ public partial class PlayAnimationActionBehaviorNode : ActionBehaviorNode {
         };
     }
 
-    public override void BuildNode(FluentBuilder<GodotBehaviorContext> builder) {
+    public override void BuildNode(FluentBuilder<GodotBehaviourContext> builder) {
 
         builder.Do(Name, data => {
             if ((!animationPlayer.IsPlaying() || animationPlayer.CurrentAnimation != animationName) &&
                 !animationCompleted) {
                 if (animationPlayer.HasAnimation(animationName)) {
-                    LOGGER.Print($"Animation {animationName} started for {Name}");
+                    GD.Print($"Animation {animationName} started for {Name}");
                     animationPlayer.Play(animationName);
                 } else {
-                    LOGGER.Err($"Attempting to play animation that does not exist: {animationName}");
+                    GD.PrintErr($"Attempting to play animation that does not exist: {animationName}");
                     return BehaviourStatus.Failed;
                 }
             }

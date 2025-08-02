@@ -1,15 +1,11 @@
-﻿using bbgodotprototype.System;
-using BehaviourTree;
+﻿using BehaviourTree;
 using BehaviourTree.FluentBuilder;
-using Chickensoft.Log;
 using Godot;
-using Godot.Collections;
-namespace Cpaz.FluentBehaviorTree.Nodes.CommonActions;
+namespace Cpaz.FluentBehaviourTree.Nodes.CommonActions;
 
 [GlobalClass]
-public partial class MoveAndTurnTo3DActionBehaviorNode : ActionBehaviorNode {
+public partial class MoveAndTurnTo3DActionBehaviourNode : ActionBehaviourNode {
 
-    private readonly static ILog LOGGER = new Log(nameof(MoveAndTurnTo3DActionBehaviorNode));
 
     /**
      * What node will handle rotation? Leave null if not doing rotation
@@ -33,23 +29,28 @@ public partial class MoveAndTurnTo3DActionBehaviorNode : ActionBehaviorNode {
     public int minDistance;
 
 
-    public override void BuildNode(FluentBuilder<GodotBehaviorContext> builder) {
+    public override void BuildNode(FluentBuilder<GodotBehaviourContext> builder) {
         builder.Do(Name, context => {
 
             // Need owner to be a character3d node
             if (context.owner is not CharacterBody3D characterBodyOwner) {
-                LOGGER.Err($"{Name}: owner is not a CharacterBody3D");
+                GD.PrintErr($"{Name}: owner is not a CharacterBody3D");
                 return BehaviourStatus.Failed;
             }
 
             // Need a valid target node
+            
+            // TODO: Hardcoded example from personal project:
+            // var targetNode = WorldManager.Player;
+            
             // TODO: How would we parameterize this???
-            var targetNode = WorldManager.Player;
+            // Doesn't seem to work correctly... 
             // owner.GetTree().Root.GetNode<Node3D>(targetNodePath);
+            Node3D targetNode = null;
             if (targetNode == null || !IsInstanceValid(targetNode) || targetNode.IsQueuedForDeletion()) {
-                LOGGER.Err($"{Name}: targetNode is not valid");
+                GD.PrintErr($"{Name}: targetNode is not valid");
                 if (targetNodePath.StartsWith('%')) {
-                    LOGGER.Print(
+                    GD.Print(
                         $"Given node path: {targetNodePath} starts with '%'. Does your node exist or have unique path?");
                 }
                 return BehaviourStatus.Failed;

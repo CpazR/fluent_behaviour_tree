@@ -1,67 +1,66 @@
-﻿using Cpaz.FluentBehaviorTree;
-using Godot;
+﻿using Godot;
 using Godot.Collections;
 using System.Linq;
-namespace Cpaz.FDluentBehaviorTree;
+namespace Cpaz.FDluentBehaviourTree;
 
-public partial class BehaviorTreeDebugRegistrar : Node {
+public partial class BehaviourTreeDebugRegistrar : Node {
 
     /**
-     * A map containing behavior trees mapped by their owner's name
+     * A map containing behaviour trees mapped by their owner's name
      */
-    private Dictionary<string, BehaviorTree> registeredTrees = [];
+    private Dictionary<string, FluentBehaviourTree.BehaviourTree> registeredTrees = [];
 
     /**
      * Instance of singleton
      */
-    private static BehaviorTreeDebugRegistrar _instance;
+    private static BehaviourTreeDebugRegistrar _instance;
 
-    public static BehaviorTreeDebugRegistrar Instance {
+    public static BehaviourTreeDebugRegistrar Instance {
         get {
             if (_instance != null) return _instance;
             _instance =
-                ((SceneTree)Engine.GetMainLoop()).Root.GetNodeOrNull<BehaviorTreeDebugRegistrar>(
-                    nameof(BehaviorTreeDebugRegistrar));
+                ((SceneTree)Engine.GetMainLoop()).Root.GetNodeOrNull<BehaviourTreeDebugRegistrar>(
+                    nameof(BehaviourTreeDebugRegistrar));
 
             if (_instance != null) return _instance;
 
-            _instance = new BehaviorTreeDebugRegistrar();
-            _instance.Name = nameof(BehaviorTreeDebugRegistrar);
+            _instance = new BehaviourTreeDebugRegistrar();
+            _instance.Name = nameof(BehaviourTreeDebugRegistrar);
             return _instance;
         }
     }
 
-    public static void RegisterTree(Node owner, BehaviorTree tree) {
+    public static void RegisterTree(Node owner, FluentBehaviourTree.BehaviourTree tree) {
         // Use both the node name and it's session instanceID
         Instance.registeredTrees[$"{owner.Name}-{owner.GetInstanceId()}"] = tree;
         if (CanSendMessage()) {
             var messageParams = new Array([tree.GetTreeDebuggerData()]);
-            EngineDebugger.SendMessage(FluentBehaviorTreeDebugger.MESSAGE_REGISTER_TREE, messageParams);
+            EngineDebugger.SendMessage(FluentBehaviourTreeDebugger.MESSAGE_REGISTER_TREE, messageParams);
         }
     }
 
-    public static void UpdateTree(Node owner, BehaviorTree tree) {
+    public static void UpdateTree(Node owner, FluentBehaviourTree.BehaviourTree tree) {
         // Use both the node name and it's session instanceID
         Instance.registeredTrees[$"{owner.Name}-{owner.GetInstanceId()}"] = tree;
         if (CanSendMessage()) {
             var messageParams = new Array([tree.GetTreeDebuggerData()]);
-            EngineDebugger.SendMessage(FluentBehaviorTreeDebugger.MESSAGE_UPDATE_TREE, messageParams);
+            EngineDebugger.SendMessage(FluentBehaviourTreeDebugger.MESSAGE_UPDATE_TREE, messageParams);
         }
     }
 
-    public static void UnregisterTree(Node owner, BehaviorTree tree) {
+    public static void UnregisterTree(Node owner, FluentBehaviourTree.BehaviourTree tree) {
         // Use both the node name and it's session instanceID
         Instance.registeredTrees.Remove($"{owner.Name}-{owner.GetInstanceId()}");
         if (CanSendMessage()) {
             var messageParams = new Array([tree.GetTreeDebuggerData()]);
-            EngineDebugger.SendMessage(FluentBehaviorTreeDebugger.MESSAGE_UNREGISTER_TREE, messageParams);
+            EngineDebugger.SendMessage(FluentBehaviourTreeDebugger.MESSAGE_UNREGISTER_TREE, messageParams);
         }
     }
 
-    public static Array<BehaviorTree> AvailableTreesAsList() {
-        var list = new Array<BehaviorTree>();
-        foreach (var behaviorTree in Instance.registeredTrees.Select(pair => pair.Value)) {
-            list.Add(behaviorTree);
+    public static Array<FluentBehaviourTree.BehaviourTree> AvailableTreesAsList() {
+        var list = new Array<FluentBehaviourTree.BehaviourTree>();
+        foreach (var behaviourTree in Instance.registeredTrees.Select(pair => pair.Value)) {
+            list.Add(behaviourTree);
         }
         return list;
     }

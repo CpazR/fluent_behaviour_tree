@@ -1,13 +1,13 @@
 ﻿using BehaviourTree.FluentBuilder;
 using Godot;
-namespace Cpaz.FluentBehaviorTree.Nodes;
+namespace Cpaz.FluentBehaviourTree.Nodes;
 
-[Icon("res://addons/fluent_behavior_tree/BehaviorTree/Nodes/icons/BTCompositeSelector.svg")]
+[Icon("res://addons/fluent_behaviour_tree/BehaviourTree/Nodes/icons/BTCompositeSelector.svg")]
 [GlobalClass]
-public partial class SelectorBehaviorNode : BehaviorNode {
+public partial class SelectorBehaviourNode : BehaviourNode {
 
     public override void
-        BuildNode(FluentBuilder<GodotBehaviorContext> builder) {
+        BuildNode(FluentBuilder<GodotBehaviourContext> builder) {
         builder.Sequence(Name);
     }
 }

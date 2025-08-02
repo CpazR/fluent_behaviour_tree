@@ -2,24 +2,24 @@
 using BehaviourTree.Composites;
 using BehaviourTree.Decorators;
 using BehaviourTree.FluentBuilder;
-using Cpaz.FDluentBehaviorTree;
-using Cpaz.FluentBehaviorTree.Nodes;
+using Cpaz.FDluentBehaviourTree;
+using Cpaz.FluentBehaviourTree.Nodes;
 using Godot;
 using Godot.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Node = Godot.Node;
 
-namespace Cpaz.FluentBehaviorTree;
+namespace Cpaz.FluentBehaviourTree;
 
 /**
- * The entry point and root node for a behavior tree.
+ * The entry point and root node for a behaviour tree.
  *
- * Leverages <see cref="FluentBuilder<GodotBehaviorContext>"/> under the hood the handle all the actual behavior tree logic.
+ * Leverages <see cref="FluentBuilder<GodotBehaviourContext>"/> under the hood the handle all the actual behaviour tree logic.
  */
-[Icon("res://addons/fluent_behavior_tree/BehaviorTree/Nodes/icons/BTBehaviour.svg")]
+[Icon("res://addons/fluent_behaviour_tree/BehaviourTree/Nodes/icons/BTBehaviour.svg")]
 [GlobalClass]
-public partial class BehaviorTree : Node {
+public partial class BehaviourTree : Node {
 
     [Export]
     public bool enabled = true;
@@ -28,27 +28,27 @@ public partial class BehaviorTree : Node {
     public Node3D treeOwner;
 
     /**
-     * Properties bound to the behavior tree
+     * Properties bound to the behaviour tree
      */
     [Export]
     public Godot.Collections.Dictionary<string, Variant> blackboard =
         new Godot.Collections.Dictionary<string, Variant>();
 
-    public IBehaviour<GodotBehaviorContext> behaviorTree { get; private set; }
+    public IBehaviour<GodotBehaviourContext> behaviourTree { get; private set; }
 
     public override void _Ready() {
         base._Ready();
-        var builder = new FluentBuilder<GodotBehaviorContext>();
-        var behaviorNodes = GetChildren()
-            .Where(node => node is BehaviorNode)
-            .Cast<BehaviorNode>()
+        var builder = new FluentBuilder<GodotBehaviourContext>();
+        var behaviourNodes = GetChildren()
+            .Where(node => node is BehaviourNode)
+            .Cast<BehaviourNode>()
             .ToList();
 
         // Don't "end" branch since it's the root
-        AddBranch(builder, behaviorNodes, false);
-        behaviorTree = builder.Build();
+        AddBranch(builder, behaviourNodes, false);
+        behaviourTree = builder.Build();
         // Once built, register with debugger
-        BehaviorTreeDebugRegistrar.RegisterTree(treeOwner, this);
+        BehaviourTreeDebugRegistrar.RegisterTree(treeOwner, this);
     }
 
     public override void _Process(double delta) {
@@ -58,27 +58,27 @@ public partial class BehaviorTree : Node {
             return;
         }
 
-        behaviorTree.Tick(new GodotBehaviorContext((float)delta, treeOwner, blackboard));
-        BehaviorTreeDebugRegistrar.UpdateTree(treeOwner, this);
+        behaviourTree.Tick(new GodotBehaviourContext((float)delta, treeOwner, blackboard));
+        BehaviourTreeDebugRegistrar.UpdateTree(treeOwner, this);
     }
 
     /**
      * From a "new root" BT node with children (IE sequence or composite nodes)
      */
     private void AddBranch(
-        FluentBuilder<GodotBehaviorContext> builder,
-        List<BehaviorNode> childNodes,
+        FluentBuilder<GodotBehaviourContext> builder,
+        List<BehaviourNode> childNodes,
         bool canEndBranch = true) {
 
-        foreach (var behaviorNode in childNodes) {
-            behaviorNode.BuildNode(builder);
-            var behaviorNodes = behaviorNode.GetChildren()
-                .Where(node => node is BehaviorNode)
-                .Cast<BehaviorNode>()
+        foreach (var behaviourNode in childNodes) {
+            behaviourNode.BuildNode(builder);
+            var behaviourNodes = behaviourNode.GetChildren()
+                .Where(node => node is BehaviourNode)
+                .Cast<BehaviourNode>()
                 .ToList();
 
-            if (behaviorNodes.Count != 0) {
-                AddBranch(builder, behaviorNodes);
+            if (behaviourNodes.Count != 0) {
+                AddBranch(builder, behaviourNodes);
             }
         }
 
@@ -93,7 +93,7 @@ public partial class BehaviorTree : Node {
      * <seealso cref="GetNodeDebuggerData"/>
      */
     public Dictionary GetTreeDebuggerData() {
-        return GetNodeDebuggerData(0, behaviorTree);
+        return GetNodeDebuggerData(0, behaviourTree);
     }
 
     /**
@@ -119,7 +119,7 @@ public partial class BehaviorTree : Node {
      *  }
      * </code>
      */
-    private Dictionary GetNodeDebuggerData(int depth, IBehaviour<GodotBehaviorContext> behaviourNode) {
+    private Dictionary GetNodeDebuggerData(int depth, IBehaviour<GodotBehaviourContext> behaviourNode) {
         Dictionary nodeDebugMapping = new Dictionary();
         nodeDebugMapping["depth"] = depth;
         nodeDebugMapping["name"] = depth == 0 ? $"{Owner.Name}-{Owner.GetInstanceId()}" : behaviourNode.Name;
@@ -128,13 +128,13 @@ public partial class BehaviorTree : Node {
         var childDepth = depth + 1;
 
         Array<Dictionary> children = new Array<Dictionary>();
-        if (behaviourNode is CompositeBehaviour<GodotBehaviorContext> compositeBehaviour) {
+        if (behaviourNode is CompositeBehaviour<GodotBehaviourContext> compositeBehaviour) {
             foreach (var child in compositeBehaviour.Children) {
                 children.Add(GetNodeDebuggerData(childDepth, child));
             }
         }
 
-        if (behaviourNode is DecoratorBehaviour<GodotBehaviorContext> decoratorBehaviour) {
+        if (behaviourNode is DecoratorBehaviour<GodotBehaviourContext> decoratorBehaviour) {
             children.Add(GetNodeDebuggerData(childDepth, decoratorBehaviour.Child));
         }
         nodeDebugMapping["childNodes"] = children;

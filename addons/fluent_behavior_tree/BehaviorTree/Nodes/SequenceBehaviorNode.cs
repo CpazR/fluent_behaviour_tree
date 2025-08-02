@@ -1,12 +1,12 @@
 ﻿using BehaviourTree.FluentBuilder;
 using Godot;
-namespace Cpaz.FluentBehaviorTree.Nodes;
+namespace Cpaz.FluentBehaviourTree.Nodes;
 
-[Icon("res://addons/fluent_behavior_tree/BehaviorTree/Nodes/icons/BTCompositeSequence.svg")]
+[Icon("res://addons/fluent_behaviour_tree/BehaviourTree/Nodes/icons/BTCompositeSequence.svg")]
 [GlobalClass]
-public partial class SequenceBehaviorNode : BehaviorNode {
+public partial class SequenceBehaviourNode : BehaviourNode {
 
-    public override void BuildNode(FluentBuilder<GodotBehaviorContext> builder) {
+    public override void BuildNode(FluentBuilder<GodotBehaviourContext> builder) {
         builder.Sequence(Name);
     }
 }

@@ -1,22 +1,20 @@
-﻿using Chickensoft.Log;
-using Godot;
+﻿using Godot;
 using Godot.Collections;
-namespace Cpaz.FDluentBehaviorTree;
+namespace Cpaz.FDluentBehaviourTree;
 
 [Tool]
-public partial class FluentBehaviorTreeDebugger : EditorDebuggerPlugin {
+public partial class FluentBehaviourTreeDebugger : EditorDebuggerPlugin {
 
-    private static string MESSAGE_PREFIX = "FluentBehaviorTree";
+    private static string MESSAGE_PREFIX = "FluentBehaviourTree";
 
-    public static string MESSAGE_REGISTER_TREE = "FluentBehaviorTree:RegisterTree";
+    public static string MESSAGE_REGISTER_TREE = "FluentBehaviourTree:RegisterTree";
 
-    public static string MESSAGE_UNREGISTER_TREE = "FluentBehaviorTree:UnregisterTree";
+    public static string MESSAGE_UNREGISTER_TREE = "FluentBehaviourTree:UnregisterTree";
 
-    public static string MESSAGE_UPDATE_TREE = "FluentBehaviorTree:UpdateTree";
+    public static string MESSAGE_UPDATE_TREE = "FluentBehaviourTree:UpdateTree";
 
-    private readonly static ILog LOGGER = new Log(nameof(FluentBehaviorTreeDebugger));
 
-    private BehaviorTreeDebuggerPanel debuggerPanel = new BehaviorTreeDebuggerPanel();
+    private BehaviourTreeDebuggerPanel debuggerPanel = new BehaviourTreeDebuggerPanel();
 
     private EditorDebuggerSession session;
 
@@ -25,7 +23,7 @@ public partial class FluentBehaviorTreeDebugger : EditorDebuggerPlugin {
         session.Started += () => debuggerPanel.Start();
         session.Stopped += () => debuggerPanel.Stop();
 
-        LOGGER.Print("Adding debugger session tab");
+        GD.Print("Adding debugger session tab");
 
         debuggerPanel.Name = "FBT Live View";
         debuggerPanel.session = session;
@@ -37,25 +35,25 @@ public partial class FluentBehaviorTreeDebugger : EditorDebuggerPlugin {
     }
 
     public override bool _Capture(string message, Array data, int sessionId) {
-        // LOGGER.Print($"message: {message}, sessionId: {sessionId}, data: {data}");
+        // GD.Print($"message: {message}, sessionId: {sessionId}, data: {data}");
         if (debuggerPanel == null) {
             return false;
         }
 
         if (message == MESSAGE_REGISTER_TREE) {
-            var behaviorTree = data[0].AsGodotDictionary();
-            debuggerPanel.TreeRegistered(behaviorTree);
+            var behaviourTree = data[0].AsGodotDictionary();
+            debuggerPanel.TreeRegistered(behaviourTree);
             return true;
         }
         if (message == MESSAGE_UNREGISTER_TREE) {
-            var behaviorTree = data[0].AsGodotDictionary();
-            debuggerPanel.TreeUnregistered(behaviorTree);
+            var behaviourTree = data[0].AsGodotDictionary();
+            debuggerPanel.TreeUnregistered(behaviourTree);
             return true;
         }
         // TODO: Track such that only currently view able tree is updated
         if (message == MESSAGE_UPDATE_TREE) {
-            var behaviorTree = data[0].AsGodotDictionary();
-            debuggerPanel.UpdateTree(behaviorTree);
+            var behaviourTree = data[0].AsGodotDictionary();
+            debuggerPanel.UpdateTree(behaviourTree);
         }
 
         return false;

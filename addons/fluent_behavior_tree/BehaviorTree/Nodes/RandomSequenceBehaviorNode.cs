@@ -1,12 +1,12 @@
 ﻿using BehaviourTree.FluentBuilder;
 using Godot;
-namespace Cpaz.FluentBehaviorTree.Nodes;
+namespace Cpaz.FluentBehaviourTree.Nodes;
 
-[Icon("res://addons/fluent_behavior_tree/BehaviorTree/Nodes/icons/BTCompositeRandomSequence.svg")]
+[Icon("res://addons/fluent_behaviour_tree/BehaviourTree/Nodes/icons/BTCompositeRandomSequence.svg")]
 [GlobalClass]
-public partial class RandomSequenceBehaviorNode : BehaviorNode {
+public partial class RandomSequenceBehaviourNode : BehaviourNode {
 
-    public override void BuildNode(FluentBuilder<GodotBehaviorContext> builder) {
+    public override void BuildNode(FluentBuilder<GodotBehaviourContext> builder) {
         builder.RandomSelector(Name);
     }
 }

@@ -1,16 +1,16 @@
 ﻿using BehaviourTree.FluentBuilder;
 using Godot;
 
-namespace Cpaz.FluentBehaviorTree.Nodes;
+namespace Cpaz.FluentBehaviourTree.Nodes;
 
 /** 
- * The base node for <see cref="BehaviorTree"/>. All relevant nodes will extend off of this.
+ * The base node for <see cref="BehaviourTree"/>. All relevant nodes will extend off of this.
  */
 [GlobalClass]
-public abstract partial class BehaviorNode : Node {
+public abstract partial class BehaviourNode : Node {
 
     /**
-     * TODO: Move owner and blackboard to <see cref="GodotBehaviorContext"/>
+     * TODO: Move owner and blackboard to <see cref="GodotBehaviourContext"/>
      */
-    public abstract void BuildNode(FluentBuilder<GodotBehaviorContext> builder);
+    public abstract void BuildNode(FluentBuilder<GodotBehaviourContext> builder);
 }

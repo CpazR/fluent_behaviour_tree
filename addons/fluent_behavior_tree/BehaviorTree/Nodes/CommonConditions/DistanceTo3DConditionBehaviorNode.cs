@@ -1,14 +1,9 @@
-﻿using bbgodotprototype.System;
-using BehaviourTree.FluentBuilder;
-using Chickensoft.Log;
+﻿using BehaviourTree.FluentBuilder;
 using Godot;
-using Godot.Collections;
-namespace Cpaz.FluentBehaviorTree.Nodes.CommonConditions;
+namespace Cpaz.FluentBehaviourTree.Nodes.CommonConditions;
 
 [GlobalClass]
-public partial class DistanceTo3DConditionBehaviorNode : ConditionBehaviorNode {
-
-    private readonly static ILog LOGGER = new Log(nameof(DistanceTo3DConditionBehaviorNode));
+public partial class DistanceTo3DConditionBehaviourNode : ConditionBehaviourNode {
 
     [Export]
     public required string targetNodePath;
@@ -16,18 +11,22 @@ public partial class DistanceTo3DConditionBehaviorNode : ConditionBehaviorNode {
     [Export]
     public int distance;
 
-    public override void BuildNode(FluentBuilder<GodotBehaviorContext> builder) {
+    public override void BuildNode(FluentBuilder<GodotBehaviourContext> builder) {
 
         builder.Condition(Name, context => {
 
             // Need a valid target node
+            // TODO: Hardcoded example from personal project:
+            // var targetNode = WorldManager.Player;
+
             // TODO: How would we parameterize this???
-            var targetNode = WorldManager.Player;
+            // Doesn't seem to work correctly... 
             // owner.GetTree().Root.GetNode<Node3D>(targetNodePath);
+            Node3D targetNode = null;
             if (targetNode == null || !IsInstanceValid(targetNode) || targetNode.IsQueuedForDeletion()) {
                 GD.PrintErr($"{Name}: targetNode is not valid");
                 if (targetNodePath.StartsWith('%')) {
-                    LOGGER.Print(
+                    GD.Print(
                         $"Given node path: {targetNodePath} starts with '%'. Does your node exist or have unique path?");
                 }
                 return false;

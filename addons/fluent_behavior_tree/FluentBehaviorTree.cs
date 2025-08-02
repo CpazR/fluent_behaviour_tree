@@ -1,18 +1,18 @@
 #if TOOLS
-using Cpaz.FDluentBehaviorTree;
+using Cpaz.FDluentBehaviourTree;
 using Godot;
-namespace cpaz.fluentBehaviorTree;
+namespace cpaz.fluentBehaviourTree;
 
 [Tool]
-public partial class FluentBehaviorTree : EditorPlugin {
+public partial class FluentBehaviourTree : EditorPlugin {
 
-    private FluentBehaviorTreeDebugger attatchedDebugger;
+    private FluentBehaviourTreeDebugger attatchedDebugger;
 
-    private const string RegistrarAutoloadPath = "res://addons/fluent_behavior_tree/BehaviorTree/Debugging/BehaviorTreeDebugRegistrar.tscn";
+    private const string RegistrarAutoloadPath = "res://addons/fluent_behaviour_tree/BehaviourTree/Debugging/BehaviourTreeDebugRegistrar.tscn";
 
     public override void _EnterTree() {
-        attatchedDebugger = new FluentBehaviorTreeDebugger();
-        AddAutoloadSingleton("BehaviorTreeDebugRegistrar", RegistrarAutoloadPath);
+        attatchedDebugger = new FluentBehaviourTreeDebugger();
+        AddAutoloadSingleton("BehaviourTreeDebugRegistrar", RegistrarAutoloadPath);
         AddDebuggerPlugin(attatchedDebugger);
     }
 

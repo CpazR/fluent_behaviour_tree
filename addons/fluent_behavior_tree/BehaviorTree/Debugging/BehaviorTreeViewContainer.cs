@@ -3,10 +3,10 @@ using Godot;
 using Godot.Collections;
 using System;
 using System.Linq;
-namespace Cpaz.FDluentBehaviorTree;
+namespace Cpaz.FDluentBehaviourTree;
 
 [Tool]
-public partial class BehaviorTreeViewContainer : VBoxContainer {
+public partial class BehaviourTreeViewContainer : VBoxContainer {
 
     public Dictionary behaviourNode;
 
@@ -14,9 +14,9 @@ public partial class BehaviorTreeViewContainer : VBoxContainer {
 
     private readonly RichTextLabel nodeLabel = new RichTextLabel();
 
-    private Array<BehaviorTreeViewContainer> childContainer = [];
+    private Array<BehaviourTreeViewContainer> childContainer = [];
 
-    public BehaviorTreeViewContainer(Dictionary behaviourNode) {
+    public BehaviourTreeViewContainer(Dictionary behaviourNode) {
         this.behaviourNode = behaviourNode;
         this.depth = behaviourNode["depth"].AsInt32();
 
@@ -31,7 +31,7 @@ public partial class BehaviorTreeViewContainer : VBoxContainer {
 
         if (childNodes is { Count: > 0 }) {
             foreach (var childNode in childNodes) {
-                var childLabel = new BehaviorTreeViewContainer(childNode);
+                var childLabel = new BehaviourTreeViewContainer(childNode);
                 childContainer.Add(childLabel);
                 AddChild(childLabel);
             }

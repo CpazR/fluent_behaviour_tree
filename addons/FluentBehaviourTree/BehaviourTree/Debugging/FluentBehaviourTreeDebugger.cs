@@ -57,8 +57,12 @@ public partial class FluentBehaviourTreeDebugger : EditorDebuggerPlugin {
             var treeName = behaviourTree.GetValueOrDefault("name", "").AsString();
             // The debugger panel tree should never be empty, or missing this field
             // Double check here so we can log a useful message just in case 
-            if (treeName != string.Empty && treeName == debuggerPanel.GetTreeName(debuggerPanel.behaviour)) {
-                debuggerPanel.UpdateTree(behaviourTree);
+            if (treeName != string.Empty) {
+                // Only update currently selected tree. Message is valid regardless. But only parse relevant messages.
+                if (treeName == debuggerPanel.GetTreeName(debuggerPanel.behaviour)) {
+                    debuggerPanel.UpdateTree(behaviourTree);
+                }
+                return true;
             } else {
                 GD.Print($"Error parsing update message: {behaviourTree}");
             }

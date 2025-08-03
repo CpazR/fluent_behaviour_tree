@@ -1,5 +1,7 @@
 ﻿using Godot;
-using Godot.Collections;
+using System;
+using System.Collections.Generic;
+using Array = Godot.Collections.Array;
 namespace Cpaz.fluentBehaviourTree;
 
 [Tool]
@@ -52,8 +54,13 @@ public partial class FluentBehaviourTreeDebugger : EditorDebuggerPlugin {
         }
         if (message == MESSAGE_UPDATE_TREE) {
             var behaviourTree = data[0].AsGodotDictionary();
-            if (behaviourTree["name"].AsString() == debuggerPanel.GetTreeName()) {
+            var treeName = behaviourTree.GetValueOrDefault("name", "").AsString();
+            // The debugger panel tree should never be empty, or missing this field
+            // Double check here so we can log a useful message just in case 
+            if (treeName != string.Empty && treeName == debuggerPanel.GetTreeName(debuggerPanel.behaviour)) {
                 debuggerPanel.UpdateTree(behaviourTree);
+            } else {
+                GD.Print($"Error parsing update message: {behaviourTree}");
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using Godot;
 using Godot.Collections;
+using System.Collections.Generic;
 namespace Cpaz.fluentBehaviourTree;
 
 [Tool]
@@ -7,7 +8,7 @@ public partial class BehaviourTreeDebuggerPanel : PanelContainer {
 
     internal EditorDebuggerSession session;
 
-    private Dictionary behaviour;
+    internal Dictionary behaviour;
 
     private int _index;
 
@@ -23,21 +24,21 @@ public partial class BehaviourTreeDebuggerPanel : PanelContainer {
 
     private OptionButton treeList = new OptionButton();
 
-    private Label noTreeText = new Label();
-    
     public override void _Ready() {
-        noTreeText.Text = "Run game to populate debug window";
         splitContainer.SetAnchorsPreset(LayoutPreset.FullRect);
         AddChild(splitContainer);
         splitContainer.AddChild(treeList);
         splitContainer.AddChild(treeContainer);
         treeContainerVBox.Alignment = BoxContainer.AlignmentMode.Begin;
         treeContainer.AddChild(treeContainerVBox);
-        // treeContainer.AddChild(noTreeText);
     }
 
     private void SelectTree(Dictionary tree) {
         behaviour = tree;
+        // Remove if already exists. Prevents multiple trees from rendering at once.
+        if (treeContainerVBox.GetChildren().Contains(rootControl)) {
+            treeContainerVBox.RemoveChild(rootControl);
+        }
         rootControl = new BehaviourTreeViewContainer(behaviour);
         treeContainerVBox.AddChild(rootControl);
     }
@@ -62,7 +63,7 @@ public partial class BehaviourTreeDebuggerPanel : PanelContainer {
         if (behaviour == null) {
             SelectTree(tree);
         }
-        treeList.AddItem(tree["name"].AsString());
+        treeList.AddItem(GetTreeName(tree));
         treeArray.Add(tree);
     }
 
@@ -74,12 +75,10 @@ public partial class BehaviourTreeDebuggerPanel : PanelContainer {
     }
 
     public void UpdateTree(Dictionary behaviourTree) {
-        if (rootControl != null) {
-            rootControl.UpdateData(behaviourTree);
-        }
+        rootControl?.UpdateData(behaviourTree);
     }
 
-    public string GetTreeName() {
-        return behaviour["name"].AsString();
+    public string GetTreeName(Dictionary tree) {
+        return tree.GetValueOrDefault("name", "").AsString();
     }
 }

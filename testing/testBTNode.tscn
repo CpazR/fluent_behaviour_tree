@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvcvdemen2hgt"]
+
+[ext_resource type="Script" uid="uid://fwc02xk12iuv" path="res://addons/FluentBehaviourTree/BehaviourTree/BehaviourTree.cs" id="1_12eep"]
+[ext_resource type="Script" uid="uid://ckm6dflmle6ni" path="res://addons/FluentBehaviourTree/BehaviourTree/Nodes/RandomSequenceBehaviourNode.cs" id="2_1beqs"]
+[ext_resource type="Script" uid="uid://b6y8486gpsh0p" path="res://addons/FluentBehaviourTree/BehaviourTree/Nodes/CommonActions/WaitForActionBehaviourNode.cs" id="3_vqekm"]
+[ext_resource type="Texture2D" uid="uid://4pmkqmf0oom1" path="res://icon.svg" id="4_1beqs"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="BehaviourTree" type="Node" parent="." node_paths=PackedStringArray("treeOwner")]
+script = ExtResource("1_12eep")
+treeOwner = NodePath("..")
+metadata/_custom_type_script = "uid://fwc02xk12iuv"
+
+[node name="SequenceBehaviourNode" type="Node" parent="BehaviourTree"]
+script = ExtResource("2_1beqs")
+metadata/_custom_type_script = "uid://ckm6dflmle6ni"
+
+[node name="wait_1sec" type="Node" parent="BehaviourTree/SequenceBehaviourNode"]
+script = ExtResource("3_vqekm")
+waitForSeconds = 1.0
+metadata/_custom_type_script = "uid://b6y8486gpsh0p"
+
+[node name="wait_2sec" type="Node" parent="BehaviourTree/SequenceBehaviourNode"]
+script = ExtResource("3_vqekm")
+waitForSeconds = 2.0
+metadata/_custom_type_script = "uid://b6y8486gpsh0p"
+
+[node name="wait_3sec" type="Node" parent="BehaviourTree/SequenceBehaviourNode"]
+script = ExtResource("3_vqekm")
+metadata/_custom_type_script = "uid://b6y8486gpsh0p"
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("4_1beqs")

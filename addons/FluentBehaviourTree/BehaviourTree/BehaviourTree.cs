@@ -22,10 +22,10 @@ namespace Cpaz.FluentBehaviourTree;
 public partial class BehaviourTree : Node {
 
     [Export]
-    public bool enabled = true;
+    public required bool enabled = true;
 
     [Export]
-    public Node3D treeOwner;
+    public required Node3D treeOwner;
 
     /**
      * Properties bound to the behaviour tree
@@ -124,6 +124,10 @@ public partial class BehaviourTree : Node {
         nodeDebugMapping["depth"] = depth;
         nodeDebugMapping["name"] = depth == 0 ? $"{Owner.Name}-{Owner.GetInstanceId()}" : behaviourNode.Name;
         nodeDebugMapping["status"] = (int)behaviourNode.Status;
+
+        if (depth == 0) {
+            nodeDebugMapping["blackboard"] = blackboard;
+        }
 
         var childDepth = depth + 1;
 

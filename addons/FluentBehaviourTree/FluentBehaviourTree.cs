@@ -1,4 +1,4 @@
-#if TOOLS
+﻿#if TOOLS
 using Cpaz.fluentBehaviourTree;
 using Godot;
 namespace cpaz.fluentBehaviourTree;

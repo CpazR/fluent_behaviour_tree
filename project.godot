@@ -16,7 +16,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-BehaviorTreeDebugRegistrar="*res://addons/FluentBehaviourTree/BehaviourTree/Debugging/BehaviorTreeDebugRegistrar.tscn"
+BehaviourTreeDebugRegistrar="*res://addons/FluentBehaviourTree/BehaviourTree/Debugging/BehaviourTreeDebugRegistrar.tscn"
 
 [dotnet]
 

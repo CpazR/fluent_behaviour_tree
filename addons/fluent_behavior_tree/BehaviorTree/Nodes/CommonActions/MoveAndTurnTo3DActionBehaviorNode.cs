@@ -6,6 +6,8 @@ namespace Cpaz.FluentBehaviourTree.Nodes.CommonActions;
 [GlobalClass]
 public partial class MoveAndTurnTo3DActionBehaviourNode : ActionBehaviourNode {
 
+    [Export]
+    public required string targetNodeGroup = "player";
 
     /**
      * What node will handle rotation? Leave null if not doing rotation
@@ -38,23 +40,11 @@ public partial class MoveAndTurnTo3DActionBehaviourNode : ActionBehaviourNode {
                 return BehaviourStatus.Failed;
             }
 
-            // Need a valid target node
-            
-            // TODO: Hardcoded example from personal project:
-            // var targetNode = WorldManager.Player;
-            
-            // TODO: How would we parameterize this???
-            // Doesn't seem to work correctly... 
-            // owner.GetTree().Root.GetNode<Node3D>(targetNodePath);
-            Node3D targetNode = null;
-            if (targetNode == null || !IsInstanceValid(targetNode) || targetNode.IsQueuedForDeletion()) {
+            if (GetCachedTargetNodeFromGroup(targetNodeGroup, context.blackboard) is not Node3D targetNode) {
                 GD.PrintErr($"{Name}: targetNode is not valid");
-                if (targetNodePath.StartsWith('%')) {
-                    GD.Print(
-                        $"Given node path: {targetNodePath} starts with '%'. Does your node exist or have unique path?");
-                }
                 return BehaviourStatus.Failed;
             }
+
             var distanceTo = characterBodyOwner.GlobalPosition.DistanceTo(targetNode.GlobalPosition);
 
             // TODO: Optional timeout?

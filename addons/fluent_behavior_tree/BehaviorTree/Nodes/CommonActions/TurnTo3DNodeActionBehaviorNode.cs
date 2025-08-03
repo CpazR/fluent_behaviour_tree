@@ -10,7 +10,7 @@ public partial class TurnTo3DNodeActionBehaviourNode : ActionBehaviourNode {
     public required Node3D rotatingNode;
 
     [Export]
-    public required string targetNodePath;
+    public required string targetNodeGroup = "player";
 
     [Export]
     public Vector3 forwardDirection = Vector3.Forward;
@@ -30,21 +30,8 @@ public partial class TurnTo3DNodeActionBehaviourNode : ActionBehaviourNode {
                 return BehaviourStatus.Failed;
             }
 
-            // Need a valid target node
-            
-            // TODO: Hardcoded example from personal project:
-            // var targetNode = WorldManager.Player;
-            
-            // TODO: How would we parameterize this???
-            // Doesn't seem to work correctly... 
-            // owner.GetTree().Root.GetNode<Node3D>(targetNodePath);
-            Node3D targetNode = null;
-            if (targetNode == null || !IsInstanceValid(targetNode) || targetNode.IsQueuedForDeletion()) {
+            if (GetCachedTargetNodeFromGroup(targetNodeGroup, context.blackboard) is not Node3D targetNode) {
                 GD.PrintErr($"{Name}: targetNode is not valid");
-                if (targetNodePath.StartsWith('%')) {
-                    GD.Print(
-                        $"Given node path: {targetNodePath} starts with '%'. Does your node exist or have unique path?");
-                }
                 return BehaviourStatus.Failed;
             }
 

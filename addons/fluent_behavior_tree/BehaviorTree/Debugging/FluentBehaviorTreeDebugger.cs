@@ -50,7 +50,6 @@ public partial class FluentBehaviourTreeDebugger : EditorDebuggerPlugin {
             debuggerPanel.TreeUnregistered(behaviourTree);
             return true;
         }
-        // TODO: Track such that only currently view able tree is updated
         if (message == MESSAGE_UPDATE_TREE) {
             var behaviourTree = data[0].AsGodotDictionary();
             if (behaviourTree["name"].AsString() == debuggerPanel.GetTreeName()) {

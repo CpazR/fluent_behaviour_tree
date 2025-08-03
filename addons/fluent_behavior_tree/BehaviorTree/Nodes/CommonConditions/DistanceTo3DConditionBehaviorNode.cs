@@ -6,7 +6,7 @@ namespace Cpaz.FluentBehaviourTree.Nodes.CommonConditions;
 public partial class DistanceTo3DConditionBehaviourNode : ConditionBehaviourNode {
 
     [Export]
-    public required string targetNodePath;
+    public required string targetNodeGroup = "player";
 
     [Export]
     public int distance;
@@ -16,19 +16,13 @@ public partial class DistanceTo3DConditionBehaviourNode : ConditionBehaviourNode
         builder.Condition(Name, context => {
 
             // Need a valid target node
-            // TODO: Hardcoded example from personal project:
-            // var targetNode = WorldManager.Player;
+            if (!GetTree().HasGroup(targetNodeGroup)) {
+                GD.Print($"Node group {targetNodeGroup} does not exit in tree");
+            }
 
-            // TODO: How would we parameterize this???
-            // Doesn't seem to work correctly... 
-            // owner.GetTree().Root.GetNode<Node3D>(targetNodePath);
-            Node3D targetNode = null;
-            if (targetNode == null || !IsInstanceValid(targetNode) || targetNode.IsQueuedForDeletion()) {
+            if (GetTree().GetFirstNodeInGroup(targetNodeGroup) is not Node3D targetNode ||
+                !IsInstanceValid(targetNode) || targetNode.IsQueuedForDeletion()) {
                 GD.PrintErr($"{Name}: targetNode is not valid");
-                if (targetNodePath.StartsWith('%')) {
-                    GD.Print(
-                        $"Given node path: {targetNodePath} starts with '%'. Does your node exist or have unique path?");
-                }
                 return false;
             }
 

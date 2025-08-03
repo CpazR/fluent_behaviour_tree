@@ -57,13 +57,13 @@ public partial class BehaviourTreeDebuggerPanel : PanelContainer {
 
         rootContainer.AddChild(treeList);
         rootContainer.AddChild(debugContentContainer);
-        // TODO: This is a temporary solution. Not sure why the rich labels or tree container are collapsing to nothing
-        debugContentContainer.SplitOffset = 500;
 
         // BT UI
         debugContentContainer.AddChild(treeContainer);
         treeContainerVBox.Alignment = BoxContainer.AlignmentMode.Begin;
         treeContainer.AddChild(treeContainerVBox);
+        // TODO: This is a temporary solution. Not sure why the rich labels or tree container are collapsing to nothing
+        treeContainer.CustomMinimumSize = new Vector2(800, 0);
 
         // BB UI
         var keyLabel = new Label();

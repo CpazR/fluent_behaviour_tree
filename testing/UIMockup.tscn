@@ -18,10 +18,10 @@ layout_mode = 2
 
 [node name="debugContentContainer" type="HSplitContainer" parent="rootContainer"]
 layout_mode = 2
-split_offset = 500
 drag_area_highlight_in_editor = true
 
 [node name="treeContainer" type="ScrollContainer" parent="rootContainer/debugContentContainer"]
+custom_minimum_size = Vector2(750, 0)
 layout_mode = 2
 
 [node name="treeContainerVboc" type="VBoxContainer" parent="rootContainer/debugContentContainer/treeContainer"]

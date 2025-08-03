@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://carjbhnt844yq"
-path="res://.godot/imported/BTLeafSignal.svg-bc80045665410278995198e34bfd7134.ctex"
+uid="uid://tsnis0by08wy"
+path="res://.godot/imported/BTLeafSignal.svg-cfea361d5f17b77e7ab1f888c365eb92.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/fluent_behavior_tree/BehaviorTree/Nodes/icons/BTLeafSignal.svg"
-dest_files=["res://.godot/imported/BTLeafSignal.svg-bc80045665410278995198e34bfd7134.ctex"]
+source_file="res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTLeafSignal.svg"
+dest_files=["res://.godot/imported/BTLeafSignal.svg-cfea361d5f17b77e7ab1f888c365eb92.ctex"]
 
 [params]
 
@@ -34,5 +33,5 @@ process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
 svg/scale=1.0
-editor/scale_with_editor_scale=true
+editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false

@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bevi04faxe066"
-path="res://.godot/imported/BTCompositeRandom.svg-321b17bec412838266199d5b1aedf088.ctex"
+uid="uid://rsmkwue5d0km"
+path="res://.godot/imported/BTCompositeRandom.svg-25d3b79eceddeeabb9aa17969c22262f.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/fluent_behavior_tree/BehaviorTree/Nodes/icons/BTCompositeRandom.svg"
-dest_files=["res://.godot/imported/BTCompositeRandom.svg-321b17bec412838266199d5b1aedf088.ctex"]
+source_file="res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTCompositeRandom.svg"
+dest_files=["res://.godot/imported/BTCompositeRandom.svg-25d3b79eceddeeabb9aa17969c22262f.ctex"]
 
 [params]
 
@@ -34,5 +33,5 @@ process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
 svg/scale=1.0
-editor/scale_with_editor_scale=true
+editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false

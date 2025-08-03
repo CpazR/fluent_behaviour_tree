@@ -1,7 +1,7 @@
 ﻿using Godot;
 using Godot.Collections;
 using System.Linq;
-namespace Cpaz.FDluentBehaviourTree;
+namespace Cpaz.fluentBehaviourTree;
 
 public partial class BehaviourTreeDebugRegistrar : Node {
 

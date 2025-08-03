@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y6kqrnrojvj2"
-path="res://.godot/imported/BTDecoratorFail.svg-2c20db73c90d55d35a9cab0c46d308d1.ctex"
+uid="uid://duu5nil8rn145"
+path="res://.godot/imported/BTDecoratorFail.svg-8ce54b0a4300c46dbb0872d73d7aeaf6.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/fluent_behavior_tree/BehaviorTree/Nodes/icons/BTDecoratorFail.svg"
-dest_files=["res://.godot/imported/BTDecoratorFail.svg-2c20db73c90d55d35a9cab0c46d308d1.ctex"]
+source_file="res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTDecoratorFail.svg"
+dest_files=["res://.godot/imported/BTDecoratorFail.svg-8ce54b0a4300c46dbb0872d73d7aeaf6.ctex"]
 
 [params]
 
@@ -34,5 +33,5 @@ process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
 svg/scale=1.0
-editor/scale_with_editor_scale=true
+editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false

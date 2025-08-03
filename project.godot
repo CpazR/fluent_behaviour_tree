@@ -16,7 +16,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-BehaviorTreeDebugRegistrar="*res://addons/fluent_behavior_tree/BehaviorTree/Debugging/BehaviorTreeDebugRegistrar.tscn"
+BehaviorTreeDebugRegistrar="*res://addons/FluentBehaviourTree/BehaviourTree/Debugging/BehaviorTreeDebugRegistrar.tscn"
 
 [dotnet]
 
@@ -25,4 +25,4 @@ project/solution_directory="./"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/fluent_behavior_tree/plugin.cfg")
+enabled=PackedStringArray("res://addons/FluentBehaviourTree/plugin.cfg")

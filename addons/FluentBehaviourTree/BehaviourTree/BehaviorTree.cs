@@ -2,7 +2,7 @@
 using BehaviourTree.Composites;
 using BehaviourTree.Decorators;
 using BehaviourTree.FluentBuilder;
-using Cpaz.FDluentBehaviourTree;
+using Cpaz.fluentBehaviourTree;
 using Cpaz.FluentBehaviourTree.Nodes;
 using Godot;
 using Godot.Collections;
@@ -17,7 +17,7 @@ namespace Cpaz.FluentBehaviourTree;
  *
  * Leverages <see cref="FluentBuilder<GodotBehaviourContext>"/> under the hood the handle all the actual behaviour tree logic.
  */
-[Icon("res://addons/fluent_behaviour_tree/BehaviourTree/Nodes/icons/BTBehaviour.svg")]
+[Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTBehaviour.svg")]
 [GlobalClass]
 public partial class BehaviourTree : Node {
 

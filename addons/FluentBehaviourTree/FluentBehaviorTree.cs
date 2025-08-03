@@ -1,5 +1,5 @@
 #if TOOLS
-using Cpaz.FDluentBehaviourTree;
+using Cpaz.fluentBehaviourTree;
 using Godot;
 namespace cpaz.fluentBehaviourTree;
 
@@ -8,7 +8,8 @@ public partial class FluentBehaviourTree : EditorPlugin {
 
     private FluentBehaviourTreeDebugger attatchedDebugger;
 
-    private const string RegistrarAutoloadPath = "res://addons/fluent_behaviour_tree/BehaviourTree/Debugging/BehaviourTreeDebugRegistrar.tscn";
+    private const string RegistrarAutoloadPath =
+        "res://addons/FluentBehaviourTree/BehaviourTree/Debugging/BehaviourTreeDebugRegistrar.tscn";
 
     public override void _EnterTree() {
         attatchedDebugger = new FluentBehaviourTreeDebugger();
@@ -19,6 +20,5 @@ public partial class FluentBehaviourTree : EditorPlugin {
     public override void _ExitTree() {
         RemoveDebuggerPlugin(attatchedDebugger);
     }
-
 }
 #endif

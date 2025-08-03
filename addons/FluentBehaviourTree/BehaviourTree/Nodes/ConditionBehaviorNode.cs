@@ -5,7 +5,7 @@ namespace Cpaz.FluentBehaviourTree.Nodes;
 /**
  * A behaviour node that checks for a given condition and will return an appropriate <see cref="BehaviourTreeStatus"/> to reflect a true/false
  */
-[Icon("res://addons/fluent_behaviour_tree/BehaviourTree/Nodes/icons/BTLeafCondition.svg")]
+[Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTLeafCondition.svg")]
 [GlobalClass]
 public partial class ConditionBehaviourNode : BehaviourNode {
 

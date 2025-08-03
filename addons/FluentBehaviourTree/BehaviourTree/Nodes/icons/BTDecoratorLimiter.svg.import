@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cko2btxegkbtb"
-path="res://.godot/imported/BTDecoratorLimiter.svg-faafb8bb77de637d5c8e7b407a68700e.ctex"
+uid="uid://d3vwvyhx43ia1"
+path="res://.godot/imported/BTDecoratorLimiter.svg-175184af3547ea3bdf2618847be6fb05.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/fluent_behavior_tree/BehaviorTree/Nodes/icons/BTDecoratorLimiter.svg"
-dest_files=["res://.godot/imported/BTDecoratorLimiter.svg-faafb8bb77de637d5c8e7b407a68700e.ctex"]
+source_file="res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTDecoratorLimiter.svg"
+dest_files=["res://.godot/imported/BTDecoratorLimiter.svg-175184af3547ea3bdf2618847be6fb05.ctex"]
 
 [params]
 
@@ -34,5 +33,5 @@ process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
 svg/scale=1.0
-editor/scale_with_editor_scale=true
+editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false

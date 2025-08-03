@@ -1,6 +1,6 @@
 ﻿using Godot;
 using Godot.Collections;
-namespace Cpaz.FDluentBehaviourTree;
+namespace Cpaz.fluentBehaviourTree;
 
 [Tool]
 public partial class FluentBehaviourTreeDebugger : EditorDebuggerPlugin {

@@ -2,7 +2,7 @@
 using Godot;
 namespace Cpaz.FluentBehaviourTree.Nodes;
 
-[Icon("res://addons/fluent_behaviour_tree/BehaviourTree/Nodes/icons/BTCompositeSequence.svg")]
+[Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTCompositeSequence.svg")]
 [GlobalClass]
 public partial class SequenceBehaviourNode : BehaviourNode {
 

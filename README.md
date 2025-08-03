@@ -22,6 +22,9 @@ This is all very proof of concept. Any contributions are welcome.
 
 ## Known issues
 
-- Temporarily using icons from [BehaviourToolKit](https://github.com/ThePat02/BehaviourToolkit) for the sake of visual
-  clarity. Need to replace these at some point.
 - Debugger is very WIP. Needs a lot of visual cleanup.
+
+## Credits
+
+- Icons from [BehaviourToolKit](https://github.com/ThePat02/BehaviourToolkit)
+  - Used under the MIT license

@@ -3,7 +3,7 @@ using Godot;
 using Godot.Collections;
 namespace Cpaz.FluentBehaviourTree.Nodes;
 
-[Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTLeafCall.svg")]
+[Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTLeaf.svg")]
 [GlobalClass]
 public partial class ActionBehaviourNode : BehaviourNode {
 

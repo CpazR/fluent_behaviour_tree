@@ -17,7 +17,7 @@ namespace Cpaz.FluentBehaviourTree;
  *
  * Leverages <see cref="FluentBuilder<GodotBehaviourContext>"/> under the hood the handle all the actual behaviour tree logic.
  */
-[Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTBehaviour.svg")]
+[Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTRoot.svg")]
 [GlobalClass]
 public partial class BehaviourTree : Node {
 
@@ -115,7 +115,10 @@ public partial class BehaviourTree : Node {
      *              ...
      *          },
      *          ...
-     *      ]
+     *      ],
+     *      "blackboard": { // Only the root will have the blackboard
+     *          ...
+     *      }
      *  }
      * </code>
      */
@@ -124,6 +127,11 @@ public partial class BehaviourTree : Node {
         nodeDebugMapping["depth"] = depth;
         nodeDebugMapping["name"] = depth == 0 ? $"{Owner.Name}-{Owner.GetInstanceId()}" : behaviourNode.Name;
         nodeDebugMapping["status"] = (int)behaviourNode.Status;
+
+        // Only the root will have the blackboard 
+        if (depth == 0) {
+            nodeDebugMapping["blackboard"] = blackboard;
+        }
 
         var childDepth = depth + 1;
 

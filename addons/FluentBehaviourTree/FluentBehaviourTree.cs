@@ -6,19 +6,19 @@ namespace cpaz.fluentBehaviourTree;
 [Tool]
 public partial class FluentBehaviourTree : EditorPlugin {
 
-    private FluentBehaviourTreeDebugger attatchedDebugger;
+    private FluentBehaviourTreeDebugger attachedDebugger;
 
     private const string RegistrarAutoloadPath =
         "res://addons/FluentBehaviourTree/BehaviourTree/Debugging/BehaviourTreeDebugRegistrar.tscn";
 
     public override void _EnterTree() {
-        attatchedDebugger = new FluentBehaviourTreeDebugger();
+        attachedDebugger = new FluentBehaviourTreeDebugger();
         AddAutoloadSingleton("BehaviourTreeDebugRegistrar", RegistrarAutoloadPath);
-        AddDebuggerPlugin(attatchedDebugger);
+        AddDebuggerPlugin(attachedDebugger);
     }
 
     public override void _ExitTree() {
-        RemoveDebuggerPlugin(attatchedDebugger);
+        RemoveDebuggerPlugin(attachedDebugger);
     }
 }
 #endif

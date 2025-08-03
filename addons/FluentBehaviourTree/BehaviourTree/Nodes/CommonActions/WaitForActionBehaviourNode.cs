@@ -3,9 +3,9 @@ using BehaviourTree.FluentBuilder;
 using Godot;
 namespace Cpaz.FluentBehaviourTree.Nodes.CommonActions;
 
+[Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTLeafWait.svg")]
 [GlobalClass]
 public partial class WaitForActionBehaviourNode : ActionBehaviourNode {
-
 
     [Export]
     public double waitForSeconds = 3f;

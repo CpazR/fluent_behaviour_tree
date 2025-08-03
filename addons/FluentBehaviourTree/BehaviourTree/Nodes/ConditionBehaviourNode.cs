@@ -10,6 +10,7 @@ namespace Cpaz.FluentBehaviourTree.Nodes;
 public partial class ConditionBehaviourNode : BehaviourNode {
 
     public override void BuildNode(FluentBuilder<GodotBehaviourContext> builder) {
+        // Example of basic syntax using the fluent builder
         // builder.Condition(Name, data => actionableNode.Call(actionName, data.deltaTime).AsBool());
     }
 }

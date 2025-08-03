@@ -2,12 +2,12 @@
 using Godot;
 namespace Cpaz.FluentBehaviourTree.Nodes;
 
-[Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTCompositeSelector.svg")]
+[Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTDecoratorNot.svg")]
 [GlobalClass]
-partial class SelectorBehaviourNode : BehaviourNode {
+public partial class InverterBehaviourNode : BehaviourNode {
 
     public override void
         BuildNode(FluentBuilder<GodotBehaviourContext> builder) {
-        builder.Sequence(Name);
+        builder.Invert(Name);
     }
 }

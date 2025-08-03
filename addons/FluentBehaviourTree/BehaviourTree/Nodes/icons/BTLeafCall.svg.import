@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwvb6d7kvo53u"
-path="res://.godot/imported/BTLeafCall.svg-b3b61cf5d8ec75a38bb6c99495424722.ctex"
+uid="uid://cpgjmjl24hfyu"
+path="res://.godot/imported/BTLeafCall.svg-64245c6f953892ac1d09d03bf3ec274a.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/fluent_behavior_tree/BehaviorTree/Nodes/icons/BTLeafCall.svg"
-dest_files=["res://.godot/imported/BTLeafCall.svg-b3b61cf5d8ec75a38bb6c99495424722.ctex"]
+source_file="res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTLeafCall.svg"
+dest_files=["res://.godot/imported/BTLeafCall.svg-64245c6f953892ac1d09d03bf3ec274a.ctex"]
 
 [params]
 
@@ -34,5 +33,5 @@ process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
 svg/scale=1.0
-editor/scale_with_editor_scale=true
+editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false

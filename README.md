@@ -16,6 +16,7 @@ Also has a very crude debugging menu.
 
 <img width="1985" height="1088" alt="image" src="https://github.com/user-attachments/assets/ffa4d3f9-b916-4cf5-8ff8-06cb7aff5928" />
 
+<img width="994" height="416" alt="image" src="https://github.com/user-attachments/assets/019083f2-9169-4f8a-be65-d4ae672f1911" />
 
 This is all very proof of concept. Any contributions are welcome.
 

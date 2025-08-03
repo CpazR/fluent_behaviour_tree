@@ -22,10 +22,10 @@ namespace Cpaz.FluentBehaviourTree;
 public partial class BehaviourTree : Node {
 
     [Export]
-    public bool enabled = true;
+    public required bool enabled = true;
 
     [Export]
-    public Node3D treeOwner;
+    public required Node3D treeOwner;
 
     /**
      * Properties bound to the behaviour tree

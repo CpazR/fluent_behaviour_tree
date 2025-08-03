@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://c64ia81wm45ku"]
+
+[ext_resource type="PackedScene" uid="uid://bvcvdemen2hgt" path="res://testing/testBTNode.tscn" id="1_u071l"]
+
+[node name="MockScene" type="Node3D"]
+
+[node name="Node3D" parent="." instance=ExtResource("1_u071l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="BehaviourTree" parent="Node3D" index="0"]
+blackboard = Dictionary[String, Variant]({
+"MOCK_KEY": "testing",
+"MOCK_KEY_INT": 890
+})
+
+[node name="Node3D2" parent="." instance=ExtResource("1_u071l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="BehaviourTree" parent="Node3D2" index="0"]
+blackboard = Dictionary[String, Variant]({
+"MOCK_KEY_VECTOR": Vector2(576, 189)
+})
+
+[node name="Node3D3" parent="." instance=ExtResource("1_u071l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1)
+
+[editable path="Node3D"]
+[editable path="Node3D2"]
+[editable path="Node3D3"]

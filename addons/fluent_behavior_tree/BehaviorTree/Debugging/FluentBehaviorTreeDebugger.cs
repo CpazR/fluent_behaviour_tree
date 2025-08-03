@@ -25,7 +25,7 @@ public partial class FluentBehaviourTreeDebugger : EditorDebuggerPlugin {
 
         GD.Print("Adding debugger session tab");
 
-        debuggerPanel.Name = "FBT Live View";
+        debuggerPanel.Name = "Behaviour Tree Live View";
         debuggerPanel.session = session;
         session.AddSessionTab(debuggerPanel);
     }
@@ -53,7 +53,9 @@ public partial class FluentBehaviourTreeDebugger : EditorDebuggerPlugin {
         // TODO: Track such that only currently view able tree is updated
         if (message == MESSAGE_UPDATE_TREE) {
             var behaviourTree = data[0].AsGodotDictionary();
-            debuggerPanel.UpdateTree(behaviourTree);
+            if (behaviourTree["name"].AsString() == debuggerPanel.GetTreeName()) {
+                debuggerPanel.UpdateTree(behaviourTree);
+            }
         }
 
         return false;

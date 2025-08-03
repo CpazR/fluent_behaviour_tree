@@ -24,8 +24,7 @@ public partial class BehaviourTreeDebuggerPanel : PanelContainer {
     private OptionButton treeList = new OptionButton();
 
     private Label noTreeText = new Label();
-
-
+    
     public override void _Ready() {
         noTreeText.Text = "Run game to populate debug window";
         splitContainer.SetAnchorsPreset(LayoutPreset.FullRect);
@@ -78,5 +77,9 @@ public partial class BehaviourTreeDebuggerPanel : PanelContainer {
         if (rootControl != null) {
             rootControl.UpdateData(behaviourTree);
         }
+    }
+
+    public string GetTreeName() {
+        return behaviour["name"].AsString();
     }
 }

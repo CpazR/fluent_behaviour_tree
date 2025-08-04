@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Array = Godot.Collections.Array;
-namespace Cpaz.fluentBehaviourTree;
+namespace Cpaz.FluentBehaviourTree;
 
 [Tool]
 public partial class FluentBehaviourTreeDebugger : EditorDebuggerPlugin {

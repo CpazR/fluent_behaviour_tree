@@ -5,14 +5,16 @@ namespace Cpaz.FluentBehaviourTree.Nodes;
 
 [Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTLeaf.svg")]
 [GlobalClass]
-public partial class ActionBehaviourNode : BehaviourNode {
+public abstract partial class ActionBehaviourNode : BehaviourNode {
 
     private readonly static string LOOKUP_CACHE_PREFIX = "node_lookup_cache_";
 
-    public override void BuildNode(FluentBuilder<GodotBehaviourContext> builder) {
-        // Example of basic syntax using the fluent builder
-        // builder.Do(Name, data => { return BehaviourStatus.Succeeded; });
-    }
+    /**
+     * Build an action using the fluent builder
+     * <code>builder.Do(Name, data => { return BehaviourStatus.Succeeded; });</code>
+     * <see cref="BehaviourNode.BuildNode"/>
+     */
+    public abstract override void BuildNode(FluentBuilder<GodotBehaviourContext> builder);
 
     /**
      * Cache node lookup in blackboard. Minimize tree searches.

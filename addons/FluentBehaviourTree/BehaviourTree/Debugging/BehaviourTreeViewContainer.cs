@@ -3,7 +3,7 @@ using Godot;
 using Godot.Collections;
 using System;
 using System.Linq;
-namespace Cpaz.fluentBehaviourTree;
+namespace Cpaz.FluentBehaviourTree;
 
 [Tool]
 public partial class BehaviourTreeViewContainer : VBoxContainer {

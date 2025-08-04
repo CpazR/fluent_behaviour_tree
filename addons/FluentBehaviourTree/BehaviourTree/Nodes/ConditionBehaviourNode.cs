@@ -7,10 +7,12 @@ namespace Cpaz.FluentBehaviourTree.Nodes;
  */
 [Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTLeafCondition.svg")]
 [GlobalClass]
-public partial class ConditionBehaviourNode : BehaviourNode {
+public abstract partial class ConditionBehaviourNode : BehaviourNode {
 
-    public override void BuildNode(FluentBuilder<GodotBehaviourContext> builder) {
-        // Example of basic syntax using the fluent builder
-        // builder.Condition(Name, data => actionableNode.Call(actionName, data.deltaTime).AsBool());
-    }
+    /**
+     * Build an action using the fluent builder
+     * <code>builder.Condition(Name, data => { return true; });</code>
+     * <see cref="BehaviourNode.BuildNode"/>
+     */
+    public abstract override void BuildNode(FluentBuilder<GodotBehaviourContext> builder);
 }

@@ -1,4 +1,5 @@
-﻿using BehaviourTree;
+﻿#nullable enable
+using BehaviourTree;
 using BehaviourTree.FluentBuilder;
 using Godot;
 namespace Cpaz.FluentBehaviourTree.Nodes.CommonActions;

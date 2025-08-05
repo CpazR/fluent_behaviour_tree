@@ -2,7 +2,6 @@
 using BehaviourTree.Composites;
 using BehaviourTree.Decorators;
 using BehaviourTree.FluentBuilder;
-using Cpaz.FluentBehaviourTree;
 using Cpaz.FluentBehaviourTree.Nodes;
 using Godot;
 using Godot.Collections;

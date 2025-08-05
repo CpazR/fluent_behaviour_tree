@@ -57,6 +57,8 @@ public partial class BehaviourTreeDebuggerPanel : PanelContainer {
 
         rootContainer.AddChild(treeList);
         rootContainer.AddChild(debugContentContainer);
+        // Setup signals for new behaviour trees post game startup
+        treeList.ItemSelected += index => { SelectTree(treeArray[(int)index]); };
 
         // BT UI
         debugContentContainer.AddChild(treeContainer);
@@ -93,17 +95,21 @@ public partial class BehaviourTreeDebuggerPanel : PanelContainer {
 
         // If more than just the headers exist, the blackboard is populated and needs to be cleared
         if (blackboardGridContainer.GetChildren().Count > 2) {
-            blackboardDataTable.Clear();
-            foreach (var item in blackboardGridContainer.GetChildren()) {
-                blackboardGridContainer.RemoveChild(item);
-            }
-            foreach (var headerLabel in headerLabels) {
-                blackboardGridContainer.AddChild(headerLabel);
-            }
+            ResetBlackboardTable();
         }
 
         var blackboardDictionary = tree["blackboard"].AsGodotDictionary();
         UpdateBlackboardTable(blackboardDictionary);
+    }
+
+    private void ResetBlackboardTable() {
+        blackboardDataTable.Clear();
+        foreach (var item in blackboardGridContainer.GetChildren()) {
+            blackboardGridContainer.RemoveChild(item);
+        }
+        foreach (var headerLabel in headerLabels) {
+            blackboardGridContainer.AddChild(headerLabel);
+        }
     }
 
     private void UpdateBlackboardTable(Dictionary blackboardDictionary) {
@@ -126,10 +132,7 @@ public partial class BehaviourTreeDebuggerPanel : PanelContainer {
         }
     }
 
-    public void Start() {
-        // Setup signals for new behaviour trees post game startup
-        treeList.ItemSelected += index => { SelectTree(treeArray[(int)index]); };
-    }
+    public void Start() {}
 
     internal void TreeRegistered(Dictionary tree) {
         InsertTree(tree);
@@ -151,8 +154,9 @@ public partial class BehaviourTreeDebuggerPanel : PanelContainer {
     }
 
     public void Stop() {
+        behaviour = null;
         treeContainerVBox.RemoveChild(rootControl);
-        // treeContainer.AddChild(noTreeText);
+        ResetBlackboardTable();
         treeList.Clear();
         treeArray.Clear();
     }

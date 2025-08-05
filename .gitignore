@@ -2,3 +2,4 @@
 .godot/
 /android/
 .idea/.idea.fluent_behaviour_tree
+*.user

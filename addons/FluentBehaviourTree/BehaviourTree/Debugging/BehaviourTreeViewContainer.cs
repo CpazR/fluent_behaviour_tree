@@ -16,23 +16,16 @@ public partial class BehaviourTreeViewContainer : VBoxContainer {
 
     private Array<BehaviourTreeViewContainer> childContainer = [];
 
-    /**
-     * A param-less constructor is apparently required by godot on subsequent rebuilds but not on launch?
-     * Behavior here is not clear (ironically).
-     */
-    public BehaviourTreeViewContainer() {
+    public BehaviourTreeViewContainer(Dictionary behaviourNode) {
+        this.behaviourNode = behaviourNode;
+        this.depth = behaviourNode["depth"].AsInt32();
+
         nodeLabel.BbcodeEnabled = true;
         nodeLabel.ScrollActive = false;
         nodeLabel.FitContent = true;
         nodeLabel.AutowrapMode = TextServer.AutowrapMode.Off;
-        AddChild(nodeLabel);
-    }
-
-    public BehaviourTreeViewContainer(Dictionary behaviourNode) : this() {
-        this.behaviourNode = behaviourNode;
-        this.depth = behaviourNode["depth"].AsInt32();
-
         nodeLabel.Text = $"{GetIndentation()}{GetLabelName()}";
+        AddChild(nodeLabel);
 
         var childNodes = behaviourNode["childNodes"].AsGodotArray<Dictionary>();
 

@@ -66,6 +66,7 @@ public partial class BehaviourTreeDebugRegistrar : Node {
     }
 
     public static bool CanSendMessage() {
-        return !Engine.IsEditorHint() && OS.HasFeature("editor");
+        // Only send message if using editor debugger and is supported
+        return EngineDebugger.IsActive() && !Engine.IsEditorHint() && OS.HasFeature("editor");
     }
 }

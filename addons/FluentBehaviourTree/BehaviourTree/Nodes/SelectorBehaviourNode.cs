@@ -8,6 +8,6 @@ partial class SelectorBehaviourNode : BehaviourNode {
 
     public override void
         BuildNode(FluentBuilder<GodotBehaviourContext> builder) {
-        builder.Sequence(Name);
+        builder.Selector(Name);
     }
 }

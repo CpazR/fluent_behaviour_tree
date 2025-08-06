@@ -1,4 +1,5 @@
-﻿using BehaviourTree.FluentBuilder;
+﻿using BehaviourTree;
+using BehaviourTree.FluentBuilder;
 using Godot;
 namespace Cpaz.FluentBehaviourTree.Nodes;
 
@@ -7,6 +8,6 @@ namespace Cpaz.FluentBehaviourTree.Nodes;
 public partial class RandomSequenceBehaviourNode : BehaviourNode {
 
     public override void BuildNode(FluentBuilder<GodotBehaviourContext> builder) {
-        builder.RandomSelector(Name);
+        builder.RandomSequence(Name, new RandomProvider());
     }
 }

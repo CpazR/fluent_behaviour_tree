@@ -61,6 +61,12 @@ public partial class BehaviourTree : Node {
         BehaviourTreeDebugRegistrar.UpdateTree(treeOwner, this);
     }
 
+    public override void _Notification(int what) {
+        if (what == NotificationPredelete) {
+            BehaviourTreeDebugRegistrar.UnregisterTree(Owner, this);
+        }
+    }
+
     /**
      * From a "new root" BT node with children (IE sequence or composite nodes)
      */

@@ -17,7 +17,7 @@ public partial class DistanceTo3DConditionBehaviourNode : ConditionBehaviourNode
 
             // Need a valid target node
             if (!GetTree().HasGroup(targetNodeGroup)) {
-                GD.Print($"Node group {targetNodeGroup} does not exit in tree");
+                GD.PrintErr($"Node group {targetNodeGroup} does not exit in tree");
             }
 
             if (GetTree().GetFirstNodeInGroup(targetNodeGroup) is not Node3D targetNode ||

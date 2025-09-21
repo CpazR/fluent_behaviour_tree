@@ -11,6 +11,14 @@ namespace Cpaz.FluentBehaviourTree.Nodes;
 public abstract partial class BehaviourNode : Node {
 
     /**
+     * Allow all non-error logging messages. Configured per-node.
+     * TODO: Consider an optional blackboard flag to enable this globally for while tree?
+     */
+    [ExportCategory("Debug")]
+    [Export]
+    public bool debugLogging;
+
+    /**
      * The basic building block of the <see cref="FluentBuilder"/> wrapper. Is called recursively by the root <see cref="FluentBehaviourTree.BehaviourTree"/> to build the <see cref="FluentBehaviourTree"/>
      */
     public abstract void BuildNode(FluentBuilder<GodotBehaviourContext> builder);

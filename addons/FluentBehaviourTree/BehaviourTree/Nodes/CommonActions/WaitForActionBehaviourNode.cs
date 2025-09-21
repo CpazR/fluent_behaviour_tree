@@ -19,14 +19,18 @@ public partial class WaitForActionBehaviourNode : ActionBehaviourNode {
         AddChild(timer);
 
         timer.Timeout += () => {
-            GD.Print($"Timer completed for {Name}");
+            if (debugLogging) {
+                GD.Print($"Timer completed for {Name}");
+            }
             timerComplete = true;
         };
 
         builder.Do(Name, context => {
             if (!timerComplete) {
                 if (timer.IsStopped()) {
-                    GD.Print($"Timer set for {Name}");
+                    if (debugLogging) {
+                        GD.Print($"Timer set for {Name}");
+                    }
                     timer.SetWaitTime(waitForSeconds);
                     timer.Start();
                 }

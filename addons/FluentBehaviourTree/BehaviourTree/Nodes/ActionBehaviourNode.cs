@@ -27,7 +27,7 @@ public abstract partial class ActionBehaviourNode : BehaviourNode {
 
         // Need a valid target node group
         if (!GetTree().HasGroup(nodeGroup)) {
-            GD.Print($"Node group {nodeGroup} does not exit in tree. Check node group exists in node tab.");
+            GD.PrintErr($"Node group {nodeGroup} does not exit in tree. Check node group exists in node tab.");
         }
 
         // Attempt to look up node group in tree and cache first result

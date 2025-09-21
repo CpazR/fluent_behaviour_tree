@@ -25,7 +25,9 @@ public partial class PlayAnimationActionBehaviourNode : ActionBehaviourNode {
 
         animationPlayer.AnimationFinished += name => {
             if (waitForCompletion && name == animationName) {
-                GD.Print($"Animation {animationName} completed for {Name}");
+                if (debugLogging) {
+                    GD.Print($"Animation {animationName} completed for {Name}");
+                }
                 animationCompleted = true;
             }
         };
@@ -37,7 +39,9 @@ public partial class PlayAnimationActionBehaviourNode : ActionBehaviourNode {
             if ((!animationPlayer.IsPlaying() || animationPlayer.CurrentAnimation != animationName) &&
                 !animationCompleted) {
                 if (animationPlayer.HasAnimation(animationName)) {
-                    GD.Print($"Animation {animationName} started for {Name}");
+                    if (debugLogging) {
+                        GD.Print($"Animation {animationName} started for {Name}");
+                    }
                     animationPlayer.Play(animationName);
                 } else {
                     GD.PrintErr($"Attempting to play animation that does not exist: {animationName}");

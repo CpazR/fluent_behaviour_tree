@@ -25,6 +25,7 @@ public partial class FluentBehaviourTreeDebugger : EditorDebuggerPlugin {
         session.Started += () => debuggerPanel.Start();
         session.Stopped += () => debuggerPanel.Stop();
 
+        
         GD.Print("Adding debugger session tab");
 
         debuggerPanel.Name = "Behaviour Tree Live View";

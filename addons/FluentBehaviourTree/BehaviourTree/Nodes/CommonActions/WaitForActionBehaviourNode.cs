@@ -1,7 +1,7 @@
 ﻿using BehaviourTree;
 using BehaviourTree.FluentBuilder;
 using Godot;
-namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes.Leaves.CommonActions;
+namespace Cpaz.FluentBehaviourTree.Nodes.CommonActions;
 
 [Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTLeafWait.svg")]
 [GlobalClass]

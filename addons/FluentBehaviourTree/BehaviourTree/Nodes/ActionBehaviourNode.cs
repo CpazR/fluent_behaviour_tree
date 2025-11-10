@@ -1,11 +1,8 @@
 ﻿using BehaviourTree.FluentBuilder;
 using Godot;
 using Godot.Collections;
-namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes.Leaves;
+namespace Cpaz.FluentBehaviourTree.Nodes;
 
-/**
- * Generic leaf nodes to handle custom behaviours
- */
 [Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTLeaf.svg")]
 [GlobalClass]
 public abstract partial class ActionBehaviourNode : BehaviourNode {

@@ -1,6 +1,7 @@
 ﻿using BehaviourTree.FluentBuilder;
 using Godot;
-namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes;
+
+namespace Cpaz.FluentBehaviourTree.Nodes;
 
 /**
  * The base node for <see cref="BehaviourTree"/>. All relevant nodes will extend off of this.
@@ -18,7 +19,7 @@ public abstract partial class BehaviourNode : Node {
     public bool debugLogging;
 
     /**
-     * The basic building block of the <see cref="FluentBuilder"/> wrapper. Is called recursively by the root <see cref="BehaviourTree"/> to build the <see cref="FluentBehaviourTree"/>
+     * The basic building block of the <see cref="FluentBuilder"/> wrapper. Is called recursively by the root <see cref="FluentBehaviourTree.BehaviourTree"/> to build the <see cref="FluentBehaviourTree"/>
      */
     public abstract void BuildNode(FluentBuilder<GodotBehaviourContext> builder);
 }

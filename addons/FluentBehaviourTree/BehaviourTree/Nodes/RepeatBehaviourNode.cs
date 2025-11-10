@@ -1,12 +1,9 @@
 ﻿using BehaviourTree.FluentBuilder;
+using Cpaz.FluentBehaviourTree.Nodes;
 using Godot;
-namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes.Decorators;
+namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes;
 
-/**
- * Repeat the child node N times, as given by node input
- */
-[GlobalClass]
-public partial class RepeatBehaviourNode : DecoratorBehaviourNode {
+public partial class RepeatBehaviourNode : BehaviourNode {
 
     [Export]
     public required int repeatTimes = 5;

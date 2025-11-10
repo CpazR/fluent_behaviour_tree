@@ -1,10 +1,10 @@
 ﻿using BehaviourTree;
 using BehaviourTree.FluentBuilder;
 using Godot;
-namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes.Leaves;
+namespace Cpaz.FluentBehaviourTree.Nodes;
 
 /**
- * A generic leaf behaviour node that checks for a given condition and will return an appropriate <see cref="BehaviourStatus"/> to reflect a true/false
+ * A behaviour node that checks for a given condition and will return an appropriate <see cref="BehaviourStatus"/> to reflect a true/false
  */
 [Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTLeafCondition.svg")]
 [GlobalClass]

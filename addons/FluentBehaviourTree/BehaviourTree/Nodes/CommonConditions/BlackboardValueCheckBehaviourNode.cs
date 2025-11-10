@@ -1,6 +1,6 @@
 ﻿using BehaviourTree.FluentBuilder;
 using Godot;
-namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes.Leaves.CommonConditions;
+namespace Cpaz.FluentBehaviourTree.Nodes.CommonConditions;
 
 [GlobalClass]
 public partial class BlackboardValueCheckBehaviourNode : ConditionBehaviourNode {

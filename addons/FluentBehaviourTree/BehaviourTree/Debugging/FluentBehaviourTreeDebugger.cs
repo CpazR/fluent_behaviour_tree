@@ -1,7 +1,8 @@
 ﻿using Godot;
+using System;
 using System.Collections.Generic;
 using Array = Godot.Collections.Array;
-namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Debugging;
+namespace Cpaz.FluentBehaviourTree;
 
 [Tool]
 public partial class FluentBehaviourTreeDebugger : EditorDebuggerPlugin {

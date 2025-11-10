@@ -1,7 +1,7 @@
 ﻿#if TOOLS
-using fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Debugging;
+using Cpaz.FluentBehaviourTree;
 using Godot;
-namespace fluent_behaviour_tree.addons.FluentBehaviourTree;
+namespace cpaz.FluentBehaviourTree;
 
 [Tool]
 public partial class FluentBehaviourTree : EditorPlugin {

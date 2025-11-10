@@ -4,7 +4,7 @@ namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes.C
 
 [Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTCompositeSelector.svg")]
 [GlobalClass]
-partial class SelectorBehaviourNode : BehaviourNode {
+partial class SelectorBehaviourNode : CompositeBehaviourNode {
 
     public override void
         BuildNode(FluentBuilder<GodotBehaviourContext> builder) {

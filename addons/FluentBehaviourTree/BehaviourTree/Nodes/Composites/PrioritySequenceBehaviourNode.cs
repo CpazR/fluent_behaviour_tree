@@ -4,7 +4,7 @@ namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes.C
 
 [Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTCompositeSequence.svg")]
 [GlobalClass]
-public partial class PrioritySequenceBehaviourNode : BehaviourNode {
+public partial class PrioritySequenceBehaviourNode : CompositeBehaviourNode {
 
     public override void BuildNode(FluentBuilder<GodotBehaviourContext> builder) {
         builder.PrioritySequence(Name);

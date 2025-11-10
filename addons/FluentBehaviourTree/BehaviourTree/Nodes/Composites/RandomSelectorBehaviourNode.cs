@@ -5,7 +5,7 @@ namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes.C
 
 [Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTCompositeRandomSelector.svg")]
 [GlobalClass]
-public partial class RandomSelectorBehaviourNode : BehaviourNode {
+public partial class RandomSelectorBehaviourNode : CompositeBehaviourNode {
 
     public override void BuildNode(FluentBuilder<GodotBehaviourContext> builder) {
         builder.RandomSelector(Name, new RandomProvider());

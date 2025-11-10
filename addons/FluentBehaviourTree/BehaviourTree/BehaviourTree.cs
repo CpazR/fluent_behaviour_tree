@@ -2,14 +2,15 @@
 using BehaviourTree.Composites;
 using BehaviourTree.Decorators;
 using BehaviourTree.FluentBuilder;
-using Cpaz.FluentBehaviourTree.Nodes;
+using fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Debugging;
+using fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes;
 using Godot;
 using Godot.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Node = Godot.Node;
 
-namespace Cpaz.FluentBehaviourTree;
+namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree;
 
 /**
  * The entry point and root node for a behaviour tree.

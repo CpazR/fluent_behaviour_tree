@@ -1,13 +1,13 @@
 ﻿using BehaviourTree.FluentBuilder;
 using Godot;
-namespace Cpaz.FluentBehaviourTree.Nodes;
+namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes.Decorators;
 
 /**
  * Has a n% chance to execute the child nodes
  */
 [Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTCompositeRandomSelector.svg")]
 [GlobalClass]
-public partial class RandomBehaviourNode : BehaviourNode {
+public partial class RandomBehaviourNode : DecoratorBehaviourNode {
 
     [Export]
     public float randomChance;

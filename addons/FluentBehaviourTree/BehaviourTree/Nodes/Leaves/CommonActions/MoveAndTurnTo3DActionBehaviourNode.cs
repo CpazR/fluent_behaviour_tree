@@ -2,7 +2,7 @@
 using BehaviourTree;
 using BehaviourTree.FluentBuilder;
 using Godot;
-namespace Cpaz.FluentBehaviourTree.Nodes.CommonActions;
+namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes.Leaves.CommonActions;
 
 [GlobalClass]
 public partial class MoveAndTurnTo3DActionBehaviourNode : ActionBehaviourNode {

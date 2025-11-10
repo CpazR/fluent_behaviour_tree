@@ -4,7 +4,7 @@ namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes.D
 
 [Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTDecoratorSucceed.svg")]
 [GlobalClass]
-public partial class SucceederBehaviourNode : DecoratorBehaviourNode {
+public partial class SucceederDecoratorBehaviourNode : DecoratorBehaviourNode {
 
     public override void BuildNode(FluentBuilder<GodotBehaviourContext> builder) {
         builder.AlwaysSucceed(Name);

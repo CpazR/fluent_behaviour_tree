@@ -7,7 +7,7 @@ namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes.D
  */
 [Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTCompositeRandomSelector.svg")]
 [GlobalClass]
-public partial class RandomBehaviourNode : DecoratorBehaviourNode {
+public partial class RandomDecoratorBehaviourNode : DecoratorBehaviourNode {
 
     [Export]
     public float randomChance;

@@ -11,7 +11,7 @@ namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes.D
  */
 [Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTDecoratorNot.svg")]
 [GlobalClass]
-public partial class InverterBehaviourNode : DecoratorBehaviourNode {
+public partial class InverterDecoratorBehaviourNode : DecoratorBehaviourNode {
 
     public override void
         BuildNode(FluentBuilder<GodotBehaviourContext> builder) {

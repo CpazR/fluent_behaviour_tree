@@ -6,7 +6,7 @@ namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes.D
  * Repeat the child node N times, as given by node input
  */
 [GlobalClass]
-public partial class RepeatBehaviourNode : DecoratorBehaviourNode {
+public partial class RepeatDecoratorBehaviourNode : DecoratorBehaviourNode {
 
     [Export]
     public required int repeatTimes = 5;

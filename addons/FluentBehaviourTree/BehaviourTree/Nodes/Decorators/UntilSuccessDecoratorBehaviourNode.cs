@@ -3,13 +3,13 @@ using Godot;
 namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes.Decorators;
 
 /**
- * Always fail the child node
+ * Repeat until child nodes succeeds
  */
-[Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTDecoratorFail.svg")]
+[Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTDecoratorSucceed.svg")]
 [GlobalClass]
-public partial class FailerBehaviourNode : DecoratorBehaviourNode {
+public partial class UntilSuccessDecoratorBehaviourNode : DecoratorBehaviourNode {
 
     public override void BuildNode(FluentBuilder<GodotBehaviourContext> builder) {
-        builder.AlwaysFail(Name);
+        builder.UntilSuccess(Name);
     }
 }

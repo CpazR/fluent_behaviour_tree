@@ -1,7 +1,6 @@
-﻿using BehaviourTree;
-using Godot;
+﻿using Godot;
 using Godot.Collections;
-namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes;
+namespace Cpaz.FluentBehaviourTree.Nodes;
 
 /**
  * The behaviour tree context

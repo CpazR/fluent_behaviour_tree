@@ -8,7 +8,7 @@ namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes.L
  */
 [Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTLeafCondition.svg")]
 [GlobalClass]
-public abstract partial class ConditionBehaviourNode : LeafBehaviourNode {
+public abstract partial class ConditionBehaviourNode : BehaviourNode {
 
     /**
      * Build an action using the fluent builder

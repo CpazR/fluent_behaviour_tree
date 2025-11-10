@@ -8,7 +8,7 @@ namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes.L
  */
 [Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTLeaf.svg")]
 [GlobalClass]
-public abstract partial class ActionBehaviourNode : LeafBehaviourNode {
+public abstract partial class ActionBehaviourNode : BehaviourNode {
 
     private readonly static string LOOKUP_CACHE_PREFIX = "node_lookup_cache_";
 

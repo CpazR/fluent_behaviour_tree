@@ -5,7 +5,7 @@ namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes.C
 
 [Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTSimpleParallel.svg")]
 [GlobalClass]
-public partial class ParallelBehaviourNode : CompositeBehaviourNode {
+public partial class ParallelBehaviourNode : BehaviourNode {
 
     [Export]
     public SimpleParallelPolicy parallelPolicy;

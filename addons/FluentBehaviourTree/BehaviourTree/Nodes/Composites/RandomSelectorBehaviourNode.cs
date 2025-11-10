@@ -1,7 +1,7 @@
 ﻿using BehaviourTree;
 using BehaviourTree.FluentBuilder;
 using Godot;
-namespace Cpaz.FluentBehaviourTree.Nodes;
+namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes.Composites;
 
 [Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTCompositeRandomSelector.svg")]
 [GlobalClass]

@@ -1,6 +1,7 @@
-﻿using Godot;
+﻿using BehaviourTree;
+using Godot;
 using Godot.Collections;
-namespace Cpaz.FluentBehaviourTree.Nodes;
+namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Nodes;
 
 /**
  * The behaviour tree context
@@ -11,4 +12,10 @@ namespace Cpaz.FluentBehaviourTree.Nodes;
 public record GodotBehaviourContext(
     double deltaTime,
     Node3D owner,
-    Dictionary<string, Variant> blackboard);
+    Dictionary<string, Variant> blackboard) : IClock {
+
+    public long GetTimeStampInMilliseconds() {
+        // TODO: This cast may be problematic... Need to verify.
+        return (long)Time.GetTicksMsec();
+    }
+}

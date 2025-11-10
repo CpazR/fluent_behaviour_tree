@@ -1,7 +1,7 @@
 ﻿using Godot;
 using Godot.Collections;
 using System.Collections.Generic;
-namespace Cpaz.FluentBehaviourTree;
+namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree.Debugging;
 
 [Tool]
 public partial class BehaviourTreeDebuggerPanel : PanelContainer {

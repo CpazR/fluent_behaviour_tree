@@ -26,5 +26,7 @@ This is all very proof of concept. Any contributions are welcome.
 
 ## Credits
 
+- [C# Behaviour tree nuget package by Eraclys](https://github.com/Eraclys/BehaviourTree)
+  - Used under the MIT license
 - Icons from [BehaviourToolKit](https://github.com/ThePat02/BehaviourToolkit)
   - Used under the MIT license

@@ -94,6 +94,13 @@ public partial class BehaviourTree : Node {
     }
 
     /**
+     * Restart the behaviour tree from the top. Useful when, for example Player input demands the BT be recalculated from the start for hit stun/death branches.
+     */
+    public void Interrupt() {
+        behaviourTree.Reset();
+    }
+
+    /**
      * Build a variant-compatible dictionary for the debugger from the root node. Required since Godot handles
      * editor-application interactions through the networking interface via messaging, which only supports variants.
      * <seealso cref="GetNodeDebuggerData"/>

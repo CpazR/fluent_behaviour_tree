@@ -18,6 +18,7 @@ namespace fluent_behaviour_tree.addons.FluentBehaviourTree.BehaviourTree;
  * Leverages <see cref="FluentBuilder<GodotBehaviourContext>"/> under the hood the handle all the actual behaviour tree logic.
  */
 [Icon("res://addons/FluentBehaviourTree/BehaviourTree/Nodes/icons/BTRoot.svg")]
+[Tool]
 [GlobalClass]
 public partial class BehaviourTree : Node {
 
@@ -47,6 +48,11 @@ public partial class BehaviourTree : Node {
 
     public override void _Ready() {
         base._Ready();
+
+        if (Engine.IsEditorHint()) {
+            return;
+        }
+
         var builder = new FluentBuilder<GodotBehaviourContext>();
         var behaviourNodes = GetChildren()
             .Where(node => node is BehaviourNode)
@@ -63,10 +69,24 @@ public partial class BehaviourTree : Node {
         #endif
     }
 
+    /**
+     * Handle basic validation for exported fields
+     */
+    public override string[] _GetConfigurationWarnings() {
+        var warnings = new List<string>();
+
+        // ReSharper disable once ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
+        // Disable this check since this is technically "required" in code, but no real way to enforce this otherwise via editor.
+        if (treeOwner == null) {
+            warnings.Add($"\"Tree Owner\" should be assigned. Behaviour tree may not function correctly otherwise.");
+        }
+        return warnings.ToArray();
+    }
+
     public override void _Process(double delta) {
         base._Process(delta);
 
-        if (!enabled) {
+        if (Engine.IsEditorHint() || !enabled) {
             return;
         }
 

@@ -1,6 +1,5 @@
 using Godot;
-
-namespace fluent_behaviour_tree.testing;
+namespace fluent_behavior_tree.testing;
 
 public partial class MockScene : Node3D {
     

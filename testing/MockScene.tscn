@@ -7,7 +7,7 @@
 [node name="Node3D" parent="." unique_id=1797196134 instance=ExtResource("1_u071l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
 
-[node name="BehaviourTree" parent="Node3D" index="0"]
+[node name="BehaviorTree" parent="Node3D" index="0"]
 blackboard = Dictionary[String, Variant]({
 "MOCK_KEY": "testing",
 "MOCK_KEY_INT": 890
@@ -16,7 +16,7 @@ blackboard = Dictionary[String, Variant]({
 [node name="Node3D2" parent="." unique_id=1367185208 instance=ExtResource("1_u071l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 
-[node name="BehaviourTree" parent="Node3D2" index="0"]
+[node name="BehaviorTree" parent="Node3D2" index="0"]
 blackboard = Dictionary[String, Variant]({
 "MOCK_KEY_VECTOR": Vector2(576, 189)
 })

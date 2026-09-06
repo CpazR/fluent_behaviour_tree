@@ -8,7 +8,7 @@ wrappers for the Fluent builder.
 
 - Utilize common behaviour nodes for things like animations and timers
 - Extend these nodes for custom functionality
-- Uses a custom `GodotBehaviourContext`
+- Uses a custom `GodotBehaviorContext`
 
 Also has a very crude debugging menu.
 

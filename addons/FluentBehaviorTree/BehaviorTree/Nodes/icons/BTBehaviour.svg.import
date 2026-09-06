@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://excaftfgvx5y"
-path="res://.godot/imported/BTBehaviour.svg-be3374bf21b8d80dc53b2befb8c680f7.ctex"
+path="res://.godot/imported/BTBehavior.svg-be3374bf21b8d80dc53b2befb8c680f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/FluentBehaviorTree/BehaviorTree/Nodes/icons/BTBehaviour.svg"
-dest_files=["res://.godot/imported/BTBehaviour.svg-be3374bf21b8d80dc53b2befb8c680f7.ctex"]
+source_file="res://addons/FluentBehaviorTree/BehaviorTree/Nodes/icons/BTBehavior.svg"
+dest_files=["res://.godot/imported/BTBehavior.svg-be3374bf21b8d80dc53b2befb8c680f7.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fluent_behaviour_tree", "fluent_behaviour_tree.csproj", "{E39F804D-0847-4976-A215-0052D2325EE4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fluent_behavior_tree", "fluent_behavior_tree.csproj", "{E39F804D-0847-4976-A215-0052D2325EE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

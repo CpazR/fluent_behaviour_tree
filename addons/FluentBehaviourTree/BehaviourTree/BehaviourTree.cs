@@ -29,6 +29,13 @@ public partial class BehaviourTree : Node {
     public required Node3D treeOwner;
 
     /**
+     * Status cached references to help performance of debugging tools
+     */
+    private BehaviourStatus currentStatus = BehaviourStatus.Running;
+
+    private BehaviourStatus lastUpdatedStatus = BehaviourStatus.Failed;
+
+    /**
      * A hard coded blackboard value that determines if a behaviour tree can be interrupted via <see cref="Interrupt"/>
      */
     public static readonly string BB_PROP_CAN_INTERUPT = "CAN_INTERRUPT";
@@ -45,6 +52,13 @@ public partial class BehaviourTree : Node {
     public IBehaviour<GodotBehaviourContext> behaviourTree { get; private set; }
 
     private string debuggerId;
+
+    /**
+     * Determine if a tree is "stale" by last updated status
+     */
+    public bool IsStale() {
+        return currentStatus != lastUpdatedStatus;
+    }
 
     public override void _Ready() {
         base._Ready();
@@ -90,7 +104,7 @@ public partial class BehaviourTree : Node {
             return;
         }
 
-        behaviourTree.Tick(new GodotBehaviourContext((float)delta, treeOwner, blackboard));
+        currentStatus = behaviourTree.Tick(new GodotBehaviourContext((float)delta, treeOwner, blackboard));
         #if TOOLS
         BehaviourTreeDebugRegistrar.UpdateTree(treeOwner, this);
         #endif
@@ -145,6 +159,8 @@ public partial class BehaviourTree : Node {
      * <seealso cref="GetNodeDebuggerData"/>
      */
     public Dictionary GetTreeDebuggerData(string debuggerMessage) {
+        // Refresh last updated status
+        lastUpdatedStatus = currentStatus;
         return GetNodeDebuggerData(debuggerMessage, 0, behaviourTree);
     }
 
@@ -214,5 +230,4 @@ public partial class BehaviourTree : Node {
 
         return nodeDebugMapping;
     }
-
 }

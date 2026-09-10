@@ -34,17 +34,20 @@ public partial class BehaviourTreeDebugRegistrar : Node {
 
     public static void RegisterTree(Node owner, BehaviourTree tree) {
         Instance.registeredTrees[GetReadableTreeKey(owner)] = tree;
-        if (CanSendMessage()) {
-            var messageParams =
-                new Array([tree.GetTreeDebuggerData(FluentBehaviourTreeDebugger.MESSAGE_REGISTER_TREE)]);
+        if (CanSendMessage(tree)) {
+            var treeData = tree.GetTreeDebuggerData(FluentBehaviourTreeDebugger.MESSAGE_REGISTER_TREE);
+            // GD.Print($"Tree registered - {treeData["name"]}");
+            var messageParams = new Array([treeData]);
             EngineDebugger.SendMessage(FluentBehaviourTreeDebugger.MESSAGE_REGISTER_TREE, messageParams);
         }
     }
 
     public static void UpdateTree(Node owner, BehaviourTree tree) {
         Instance.registeredTrees[GetReadableTreeKey(owner)] = tree;
-        if (CanSendMessage()) {
-            var messageParams = new Array([tree.GetTreeDebuggerData(FluentBehaviourTreeDebugger.MESSAGE_UPDATE_TREE)]);
+        if (CanSendMessage(tree)) {
+            var treeData = tree.GetTreeDebuggerData(FluentBehaviourTreeDebugger.MESSAGE_UPDATE_TREE);
+            // GD.Print($"Tree updated - {treeData["name"]}");
+            var messageParams = new Array([treeData]);
             EngineDebugger.SendMessage(FluentBehaviourTreeDebugger.MESSAGE_UPDATE_TREE, messageParams);
         }
     }
@@ -52,9 +55,10 @@ public partial class BehaviourTreeDebugRegistrar : Node {
     public static void UnregisterTree(Node owner, BehaviourTree tree) {
         Instance.registeredTrees.Remove(GetReadableTreeKey(owner));
         // Send dictionary of current tree to debugger for removal
-        if (CanSendMessage()) {
-            var messageParams =
-                new Array([tree.GetTreeDebuggerData(FluentBehaviourTreeDebugger.MESSAGE_UNREGISTER_TREE)]);
+        if (CanSendMessage(tree)) {
+            var treeData = tree.GetTreeDebuggerData(FluentBehaviourTreeDebugger.MESSAGE_UNREGISTER_TREE);
+            // GD.Print($"Tree unregistered - {treeData["name"]}");
+            var messageParams = new Array([treeData]);
             EngineDebugger.SendMessage(FluentBehaviourTreeDebugger.MESSAGE_UNREGISTER_TREE, messageParams);
         }
     }
@@ -72,9 +76,9 @@ public partial class BehaviourTreeDebugRegistrar : Node {
         return $"{node.Name}-{node.GetInstanceId()}";
     }
 
-    public static bool CanSendMessage() {
+    public static bool CanSendMessage(BehaviourTree tree) {
         // Only send message if using editor debugger and is supported
-        return EngineDebugger.IsActive() && !Engine.IsEditorHint() && OS.HasFeature("editor");
+        return EngineDebugger.IsActive() && !Engine.IsEditorHint() && OS.HasFeature("editor") && tree.IsStale();
     }
 }
 #endif

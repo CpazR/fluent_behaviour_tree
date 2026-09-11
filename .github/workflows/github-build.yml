@@ -1,0 +1,57 @@
+# .github/workflows/zip-addons-release.yml
+name: Zip Addons on Release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g., F1.0.0)'
+        required: true
+        type: string
+
+jobs:
+  zip-addons:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Determine version
+        id: version
+        run: |
+          if [[ "${{ github.event_name }}" == "release" ]]; then
+            VERSION=${{ github.event.release.tag_name }}
+          else
+            VERSION=${{ github.event.inputs.version }}
+          fi
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Create zip file
+        run: |
+          REPO_NAME=${{ github.event.repository.name }}
+          VERSION=${{ steps.version.outputs.version }}
+          ZIP_NAME="${REPO_NAME}-${VERSION}.zip"
+
+          cd "${{ github.workspace }}"
+          zip -r "${ZIP_NAME}" addons/
+
+          echo "ZIP_PATH=${ZIP_NAME}" >> $GITHUB_ENV
+          echo "Created: ${ZIP_NAME}"
+
+      - name: Upload zip to release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ env.ZIP_PATH }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload artifact (manual dispatch)
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.ZIP_PATH }}
+          path: ${{ env.ZIP_PATH }}
+          retention-days: 30
